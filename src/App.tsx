@@ -3,6 +3,7 @@ import LOGO from '../assets/logo.png';
 import LOGO_SVG from '../assets/logo1.svg';
 
 export const App = () => {
+  const name = "Lokesh Bandi";
   return (
     <>
       <h1>
