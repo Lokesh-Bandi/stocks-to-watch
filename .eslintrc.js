@@ -1,7 +1,7 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 2020,
+    ecmaVersion: 'latest',
     sourceType: 'module',
   },
   settings: {
@@ -28,6 +28,7 @@ module.exports = {
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    quotes: ['warn', 'single', { allowTemplateLiterals: true }],
     'import/order': [
       'error',
       {
@@ -48,6 +49,11 @@ module.exports = {
           {
             pattern: './*.css',
             group: 'index',
+            position: 'after',
+          },
+          {
+            pattern: 'assets/**',
+            group: 'internal',
             position: 'after',
           },
         ],
