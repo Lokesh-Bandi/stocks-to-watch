@@ -28,5 +28,36 @@ module.exports = {
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    'import/order': [
+      'error',
+      {
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
+        groups: [
+          'builtin',
+          'external',
+          'internal',
+          'parent',
+          'sibling',
+          'index',
+        ],
+        'newlines-between': 'always',
+        pathGroups: [
+          {
+            pattern: './*.css',
+            group: 'index',
+            position: 'after',
+          },
+        ],
+      },
+    ],
+    'import/newline-after-import': [
+      'error',
+      {
+        count: 1,
+      },
+    ],
   },
 };

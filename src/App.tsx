@@ -1,6 +1,7 @@
-import './styles.css';
 import LOGO from '../assets/logo.png';
 import LOGO_SVG from '../assets/logo1.svg';
+
+import './styles.css';
 
 export const App = () => {
   return (
