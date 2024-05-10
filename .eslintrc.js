@@ -28,7 +28,6 @@ module.exports = {
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
-    quotes: ['warn', 'single', { allowTemplateLiterals: true }],
     'import/order': [
       'error',
       {
@@ -66,4 +65,12 @@ module.exports = {
       },
     ],
   },
+  overrides: [
+    {
+      files: ['**/*selectors.ts'],
+      rules: {
+        'react-hooks/rules-of-hooks': 'off',
+      },
+    },
+  ],
 };

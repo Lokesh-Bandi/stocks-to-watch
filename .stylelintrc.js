@@ -6,7 +6,7 @@ module.exports = {
     'length-zero-no-unit': true,
     'color-hex-length': 'long',
     'color-no-invalid-hex': true,
-    'comment-empty-line-before': true,
+    'comment-empty-line-before': 'always',
     'order/properties-order': [
       /* Important Addition */
       'z-index',
