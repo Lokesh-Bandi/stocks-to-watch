@@ -1,5 +1,8 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
+import { fetchSampleDataAction } from '../../apiActions/getActions/fetchSampleDataAction';
+import { fetchSampleDataSyncAction } from '../../apiActions/postActions/fetchSampleDataSyncAction';
+
 import { SampleType } from './types';
 
 const initialState: SampleType = {
@@ -7,6 +10,7 @@ const initialState: SampleType = {
   countriesCount: 23,
   isPlayerActive: false,
   appName: 'Redux Added',
+  posts: null,
 };
 export const sampleSlice = createSlice({
   name: 'sample',
@@ -24,6 +28,14 @@ export const sampleSlice = createSlice({
     setAppName: (state, action: PayloadAction<string>) => {
       state.appName = action.payload;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchSampleDataAction.fulfilled, (state, action) => {
+      state.posts = action.payload;
+    });
+    builder.addCase(fetchSampleDataSyncAction.fulfilled, (state, action) => {
+      state.posts?.push(action.payload);
+    });
   },
 });
 
