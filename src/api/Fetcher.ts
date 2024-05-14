@@ -5,6 +5,9 @@ import axios, {
   isAxiosError,
 } from 'axios';
 
+import { consoleError } from '../Error/consoleError';
+import { ErrorTypes } from '../Error/types';
+
 class FetcherRoot {
   private static instance: FetcherRoot;
   private cache: Record<
@@ -58,14 +61,11 @@ class FetcherRoot {
         })
         .catch((e: AxiosError | Error) => {
           const endPoint = this.getEndpoint(originalUrl);
+          const errorMessage = `${e.message} while fetching ${endPoint}`;
           if (isAxiosError(e)) {
-            console.log(
-              `⚠ AXIOS ERROR:  ${e.code} - ${e.message} while fetching ${endPoint}`
-            );
+            consoleError(ErrorTypes.axios, e.code, errorMessage);
           } else {
-            console.log(
-              `⚠ ERROR:  ${e.name} - ${e.message} while fetching ${endPoint}`
-            );
+            consoleError(ErrorTypes.fetch, undefined, errorMessage);
           }
         }),
     };
@@ -96,14 +96,11 @@ class FetcherRoot {
       })
       .catch((e: AxiosError | Error) => {
         const endPoint = this.getEndpoint(originalUrl);
+        const errorMessage = `${e.message} while posting ${endPoint}`;
         if (isAxiosError(e)) {
-          console.log(
-            `⚠ AXIOS ERROR:  ${e.code} - ${e.message} while posting ${endPoint}`
-          );
+          consoleError(ErrorTypes.axios, e.code, errorMessage);
         } else {
-          console.log(
-            `⚠ ERROR:  ${e.name} - ${e.message} while posting ${endPoint}`
-          );
+          consoleError(ErrorTypes.fetch, undefined, errorMessage);
         }
       });
     return postResponse as Promise<P>;

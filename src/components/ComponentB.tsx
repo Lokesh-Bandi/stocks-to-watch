@@ -1,3 +1,4 @@
+import { SessionStorage } from '../storage';
 import { fetchSampleDataSyncAction } from '../store/apiActions/postActions/fetchSampleDataSyncAction';
 import { useAppDispatch } from '../store/AppStore';
 import { sampleActions } from '../store/slices/sample';
@@ -21,11 +22,30 @@ export const ComponentB = () => {
       })
     );
   };
+  const setStorageItem = (key: string) => {
+    switch (key) {
+      case 'set':
+        SessionStorage.setItem('name', 'This man is doing with self intrest');
+        break;
+      case 'get':
+        const value = SessionStorage.getItem('name');
+        console.log(value);
+        break;
+      case 'remove':
+        SessionStorage.removeItem('name');
+        break;
+    }
+  };
   return (
     <div>
       <button onClick={incPlayersCount}>Increase Players Count</button>
       <button onClick={changeAppName}>AppName</button>
       <button onClick={postApi}>Fetch Again to check cache</button>
+      <button onClick={() => setStorageItem('set')}>set storage Item</button>
+      <button onClick={() => setStorageItem('get')}>get storage Item</button>
+      <button onClick={() => setStorageItem('remove')}>
+        remove storage Item
+      </button>
     </div>
   );
 };

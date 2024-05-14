@@ -22,7 +22,7 @@ export const ComponentA = () => {
             flexWrap: 'wrap',
           }}
         >
-          {posts.map((post) => {
+          {posts.slice(0, 5).map((post) => {
             return (
               <div
                 style={{
@@ -36,9 +36,7 @@ export const ComponentA = () => {
             );
           })}
         </div>
-      ) : (
-        ''
-      )}
+      ) : null}
     </div>
   );
 };
