@@ -29,3 +29,6 @@ The template has been integrated with several noteworthy libraries and tools.
       - Popular javascript library used for making HTTP requests from browser and supports all modern browsers.
       - It offers a significant features like intercepting the http requests and http responses, canceling of requests, JSON data transformations and handling response errors etc..
   
+  - Jest
+      - Popular JavaScript testing framework for tesing.
+      - It's widely used for testing JavaScript code, including both frontend and backend applications,
