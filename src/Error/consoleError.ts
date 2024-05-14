@@ -5,7 +5,7 @@ export const consoleError = (
   errorCode: string | undefined,
   errorMessage: string
 ) => {
-  let errorString = `⚠ ${errorType} ERROR: `;
+  let errorString = `${errorType} ERROR: `;
 
   if (errorCode) {
     errorString += `${errorCode} - `;
