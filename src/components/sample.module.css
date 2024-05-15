@@ -1,0 +1,11 @@
+.players_info {
+  padding-left: 40px;
+}
+.players_info_more {
+  color: black;
+  background-color: lightseagreen;
+}
+.players_info_less {
+  color: black;
+  background-color: crimson;
+}
