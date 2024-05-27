@@ -20,7 +20,29 @@ module.exports = {
       },
       {
         test: /\.module\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader', // Resolve `@import` and `url()` statements
+            options: {
+              modules: {
+                localIdentName: '[local]_[hash:base64:5]', // Customize the format of generated class names
+              },
+            },
+          },
+          {
+            loader: 'postcss-loader', // Process CSS with PostCSS
+            options: {
+              postcssOptions: {
+                plugins: [
+                  'autoprefixer', // Add vendor prefixes
+                  'cssnano', // Minify CSS
+                  'postcss-preset-env', // Use future CSS syntax today
+                ],
+              },
+            },
+          },
+        ],
       },
       {
         test: /\.(png|jpg|jpeg|gif)$/i,
