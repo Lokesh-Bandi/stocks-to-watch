@@ -2,7 +2,7 @@
   padding-left: 40px;
 }
 .players_info_more {
-  color: black;
+  color: var(--text-color);
   background-color: lightseagreen;
 }
 .players_info_less {

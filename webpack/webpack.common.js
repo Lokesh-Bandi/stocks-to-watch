@@ -1,6 +1,7 @@
 const path = require('path');
 
 const HTMLWebpackPlugin = require('html-webpack-plugin');
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = {
   entry: path.resolve(__dirname, '..', './src/index.tsx'),
@@ -16,6 +17,14 @@ module.exports = {
           {
             loader: 'babel-loader',
           },
+        ],
+      },
+      {
+        test: /\.css$/,
+        exclude: /\.module\.css$/, // Exclude CSS module files
+        use: [
+          'style-loader', // Inject CSS into the DOM
+          'css-loader', // Resolve `@import` and `url()` statements
         ],
       },
       {
@@ -62,5 +71,6 @@ module.exports = {
     new HTMLWebpackPlugin({
       template: path.resolve(__dirname, '..', './src/index.html'),
     }),
+    // new BundleAnalyzerPlugin(), //Visualize for the output file sizes
   ],
 };
