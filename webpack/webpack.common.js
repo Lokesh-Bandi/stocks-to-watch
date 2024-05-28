@@ -1,3 +1,4 @@
+const fs = require('fs');
 const path = require('path');
 
 const HTMLWebpackPlugin = require('html-webpack-plugin');
@@ -35,7 +36,7 @@ module.exports = {
             loader: 'css-loader', // Resolve `@import` and `url()` statements
             options: {
               modules: {
-                localIdentName: '[local]_[hash:base64:5]', // Customize the format of generated class names
+                localIdentName: '[local]--[hash:base64:5]', // Customize the format of generated class names
               },
             },
           },
@@ -69,7 +70,17 @@ module.exports = {
   },
   plugins: [
     new HTMLWebpackPlugin({
-      template: path.resolve(__dirname, '..', './src/index.html'),
+      template: './src/index.ejs',
+      filename: 'index.html',
+      templateParameters: {
+        title: 'React Typescript Template',
+        loader: {
+          js: fs.readFileSync(
+            path.resolve(__dirname, '..', './src/loader/loader.js'),
+            'utf-8'
+          ),
+        },
+      },
     }),
     // new BundleAnalyzerPlugin(), //Visualize for the output file sizes
   ],
