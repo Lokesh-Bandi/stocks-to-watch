@@ -1,0 +1,109 @@
+.tableRoot {
+  --tableHeight: 500px;
+  display: flex;
+  width: 100%;
+  height: var(--tableHeight);
+  padding: 4px;
+  border: 1px solid #E5E7E7;
+  border-radius: 10px;
+  flex-direction: column;
+  gap:12px;
+  box-sizing: border-box;
+}
+
+.tableTitle {
+  display: flex;
+  width: 100%;
+  height: 42px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  align-items: center;
+}
+
+.table {
+  display: flex;
+  width: 100%;
+  height: calc(100% - 42px);
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.tableHeader {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.tableHeaderItem {
+  max-width: var(--colWidth);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  color: #84868A;
+  flex-grow: 1;
+}
+.separationLine {
+  width: 100%;
+  height: 2px;
+  margin: 8px 0;
+  border-radius: 1px;
+  background-color: #F2F2F2;
+}
+
+.tableBody {
+  display: flex;
+  width: 100%;
+  height: calc(100% - 32px);
+  flex-grow: 1;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+}
+
+/* Scroll bar customiztion */
+.tableBody::-webkit-scrollbar {
+  width: 2px;
+}
+
+.tableBody::-webkit-scrollbar-track {
+  border-radius: 180px;
+  background-color: transparent;
+}
+
+.tableBody::-webkit-scrollbar-thumb {
+  border-radius: 180px;
+  background-color: #211C37;
+}
+.tableBodyRow {
+  display: flex;
+  width: 100%;
+  margin: 4px 0;
+  font-size: 16px;
+  line-height: 1;
+  color: #42404C;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.rowSummary {
+  display: flex;
+  font-size: 10px;
+  line-height: 1;
+  color: #42404C;
+}
+.tableBodyContent {
+  display: flex;
+  width: 100%;
+  font-size: 16px;
+  line-height: 1;
+  color: #42404C;
+  align-items: center;
+}
+.tableBodyItem {
+  flex-grow: 1;
+  max-width: var(--colWidth);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

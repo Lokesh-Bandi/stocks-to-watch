@@ -1,8 +1,24 @@
 .appContent {
-  display: flex;
-  flex-direction: column;
-  gap:24px;
-  flex-grow: 1;
-  padding: 30px 20px 20px 20px;
+  position: absolute;
+  top: 102px;
+  right: 0;
+  bottom: 0;
+  left: 220px;
+  padding: 0 20px;
   box-sizing: border-box;
+}
+
+/* Scroll bar customiztion */
+.appContent::-webkit-scrollbar {
+  width: 2px;
+}
+
+.appContent::-webkit-scrollbar-track {
+  border-radius: 180px;
+  background-color: transparent;
+}
+
+.appContent::-webkit-scrollbar-thumb {
+  border-radius: 180px;
+  background-color: #211C37;
 }

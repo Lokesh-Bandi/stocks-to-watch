@@ -8,7 +8,7 @@ import styles from './Drawer.module.css';
 
 export const DrawerConnected = () => {
   const [activeInd, setActiveInd] = useState(0);
-  const drawerList = ['home', 'rsi', 'mfi'];
+  const drawerList = ['', 'rsi', 'mfi'];
   const handleDrawerItemClick = (ind: number) => {
     setActiveInd(ind);
   };
@@ -17,10 +17,10 @@ export const DrawerConnected = () => {
       <AppLogo />
       {drawerList.map((listName, ind) => {
         return (
-          <Link to={`/${listName}`} key={ind}>
+          <Link to={`/${listName}`} key={ind} className={styles.noUnderline}>
             <DrawerItem
               active={ind === activeInd}
-              itemName={listName}
+              itemName={listName ? listName : 'Dashboard'}
               onClick={() => handleDrawerItemClick(ind)}
             />
           </Link>

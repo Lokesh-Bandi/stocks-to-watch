@@ -1,4 +1,5 @@
 import { BrandingCard } from '../../brandingCard/BrandingCard';
+import { OutcomeSummaryTable } from '../../outcomeSummaryTable/OutcomeSummaryTable';
 
 import styles from './AppContentBody.module.css';
 
@@ -11,6 +12,10 @@ export const AppContentBody = ({}: AppContentBodyProps) => {
         <BrandingCard />
         <BrandingCard />
         <BrandingCard />
+      </div>
+      <div className={styles.summaryTableSection}>
+        <OutcomeSummaryTable title={'Top Gainers'} />
+        <OutcomeSummaryTable title={'Top Losers'} />
       </div>
     </div>
   );
