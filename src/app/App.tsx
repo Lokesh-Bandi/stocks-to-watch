@@ -1,13 +1,11 @@
 import { AppRoot } from '../appRoot/AppRoot';
-import { ComponentA } from '../components/ComponentA';
-import { ComponentB } from '../components/ComponentB';
+import { AppRouter } from '../appRouter/AppRouter';
 import './styles.module.css';
 
 export const App = () => {
   return (
     <AppRoot>
-      <ComponentA />
-      <ComponentB />
+      <AppRouter />
     </AppRoot>
   );
 };

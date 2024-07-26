@@ -1,0 +1,60 @@
+.appHeader {
+  display: flex;
+  width: 100%;
+  height: 42px;
+}
+
+.greetingsBlock {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  flex-grow: 1;
+  flex-direction: column;
+}
+.greetingTitle {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1;
+  color: #211C37;
+}
+.greetingMsg {
+  font-size: 12px;
+  line-height: 1;
+  color: #85878D;
+}
+.searchBlock {
+  display: flex;
+  width: 30%;
+  height: 100%;
+  padding: 0 14px;
+  border: 1px solid #E7EAE9;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  box-sizing: border-box;
+}
+
+.searchInput {
+  flex-grow: 1;
+  height: 100%;
+}
+.searchInput input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+
+}
+
+.notificationBlock {
+  display: flex;
+  width: 38px;
+  height: 100%;
+  margin-left: 18px;
+  border: 1px solid #E7EAE9;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+}
