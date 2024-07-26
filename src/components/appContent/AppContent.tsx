@@ -2,7 +2,8 @@ import { AppContentBodyConnected } from './appContentBody/AppContentBodyConnecte
 
 import styles from './AppContent.module.css';
 
-export const AppContent = () => {
+interface AppContentProps {}
+export const AppContent = ({}: AppContentProps) => {
   return (
     <div className={styles.appContent}>
       <AppContentBodyConnected />

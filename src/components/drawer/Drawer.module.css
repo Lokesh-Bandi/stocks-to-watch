@@ -6,7 +6,15 @@
   align-items: center;
   flex-direction: column;
 }
-
-.noUnderline {
-  text-decoration: none;
+@media (max-width: 1024px) {
+  .drawer {
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 60%;
+    padding: 30px 20px;
+    box-sizing: border-box;
+  }
 }
+

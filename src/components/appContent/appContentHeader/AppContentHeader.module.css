@@ -40,7 +40,11 @@
   gap: 8px;
   box-sizing: border-box;
 }
-
+@media (max-width: 1024px) {
+  .searchBlock_expand {
+    padding: 0;
+  }
+}
 .searchInput {
   flex-grow: 1;
   height: 100%;
@@ -63,4 +67,28 @@
   border-radius: 10px;
   align-items: center;
   justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  .appHeader {
+    display: flex;
+    top: 40px;
+    left: 0;
+    height: unset;
+    padding: 5px 20px;
+    align-items: center;
+  }
+  .greetingTitle {
+    font-size: 14px;
+  }
+  .greetingMsg {
+    font-size: 10px;
+  }
+  .searchBlock {
+    height: 35px;
+    align-items: center;
+  }
+  .notificationBlock {
+    height: 35px;
+  }
 }
