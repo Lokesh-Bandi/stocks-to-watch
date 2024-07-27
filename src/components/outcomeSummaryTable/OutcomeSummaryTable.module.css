@@ -4,8 +4,10 @@
   width: 100%;
   height: var(--tableHeight);
   padding: 4px;
-  border: 1px solid #E5E7E7;
+  font-family: 'Exo';
+  border: 1px solid var(--table-border-color);
   border-radius: 10px;
+  background-color: var(--table-bg);
   flex-direction: column;
   gap:12px;
   box-sizing: border-box;
@@ -18,6 +20,7 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 1;
+  border-radius: 10px 10px 0 0;
   align-items: center;
 }
 
@@ -60,6 +63,7 @@
   flex-direction: column;
   align-items: center;
   overflow-y: scroll;
+  background-color: var(--table-body-bg);
 }
 
 /* Scroll bar customiztion */
@@ -74,7 +78,7 @@
 
 .tableBody::-webkit-scrollbar-thumb {
   border-radius: 180px;
-  background-color: #211C37;
+  background-color: var(--scrollbar-color);
 }
 .tableBodyRow {
   display: flex;

@@ -1,4 +1,11 @@
 :root {
+    --nav-bg: #F2ECFD;
+    --drawer-bg: #F2ECFD;
+    --drawer-item-active: #422D6E;
+    --scrollbar-color: #422D6E;
+    --table-bg: #f7f7f7;
+    --table-body-bg: #ffffff;
+    --table-border-color: #d0d5e2;
     --text-color: grey;
     --default-bg-color: teal;
 }

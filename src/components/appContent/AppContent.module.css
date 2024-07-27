@@ -3,16 +3,16 @@
   top: 102px;
   right: 0;
   bottom: 0;
-  left: 220px;
+  left: 260px;
   padding: 0 20px 30px 20px;
   overflow-y: scroll;
   box-sizing: border-box;
 }
 @media (max-width: 1024px) {
   .appContent {
-    top: 92px;
+    top: 98px;
     left: 0;
-}
+    }
 }
 
 /* Scroll bar customiztion */
@@ -27,5 +27,5 @@
 
 .appContent::-webkit-scrollbar-thumb {
   border-radius: 180px;
-  background-color: #211C37;
+  background-color: var(--scrollbar-color);
 }

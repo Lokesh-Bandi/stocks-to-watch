@@ -1,0 +1,10 @@
+.menuIcon {
+  border: 1px solid transparent;
+  cursor: pointer;
+  background-color: inherit;
+}
+
+.menuIcon_active {
+  border-radius: 100%;
+  background-color: #000000;
+}

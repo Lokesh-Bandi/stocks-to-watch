@@ -1,3 +1,4 @@
+import { sampleBrandingArray } from '../../../constants/constants';
 import { BrandingCard } from '../../brandingCard/BrandingCard';
 import { OutcomeSummaryTable } from '../../outcomeSummaryTable/OutcomeSummaryTable';
 
@@ -8,10 +9,11 @@ export const AppContentBody = ({}: AppContentBodyProps) => {
   return (
     <div className={styles.appContentBody}>
       <div className={styles.brandingSection}>
-        <BrandingCard />
-        <BrandingCard />
-        <BrandingCard />
-        <BrandingCard />
+        {sampleBrandingArray.map(({ count, title }, ind) => {
+          return (
+            <BrandingCard key={ind} index={ind} count={count} title={title} />
+          );
+        })}
       </div>
       <div className={styles.summaryTableSection}>
         <OutcomeSummaryTable title={'Top Gainers'} />

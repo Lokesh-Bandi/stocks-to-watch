@@ -10,14 +10,14 @@
   display: grid;
   width: 100%;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 188px;
+  grid-template-rows: 138px;
   column-gap: 16px;
 }
 @media (max-width: 1024px) {
   .brandingSection {
     gap: 12px;
     grid-template-columns: repeat(2,1fr);
-    grid-template-rows: 120px 120px;
+    grid-template-rows: 84px 84px;
   }
 }
 .summaryTableSection {

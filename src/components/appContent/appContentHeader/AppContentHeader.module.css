@@ -3,9 +3,10 @@
   display: flex;
   top: 0;
   right: 0;
-  left: 220px;
+  left: 260px;
   height: 102px;
   padding: 30px 20px 20px 20px;
+  font-family: 'Exo';
   background-color: #ffffff;
   box-sizing: border-box;
 }
@@ -72,7 +73,7 @@
 @media (max-width: 1024px) {
   .appHeader {
     display: flex;
-    top: 40px;
+    top: 46px;
     left: 0;
     height: unset;
     padding: 5px 20px;

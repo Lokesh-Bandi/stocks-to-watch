@@ -1,8 +1,63 @@
 .brandingCard {
   display: flex;
   height: 100%;
+  padding: 16px;
+  font-family: 'Exo';
   border-radius: 10px;
-  background-color: #EDEDFB;
+  background-color: #d3d3d3;
+  box-sizing: border-box;
   flex-direction: column;
   flex-grow: 1;
+  user-select: none;
+}
+
+.brandingCard_0 {
+  background-color: #c5efc2;
+}
+.brandingCard_1 {
+  background-color: #f4e3e3;
+}
+.brandingCard_2 {
+  background-color: #a5cc99;
+}
+
+.brandingCard_3 {
+  background-color: #c49393;
+}
+
+.countBlock {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  padding: 0 6px;
+  font-size: 26px;
+  font-weight: bold;
+  line-height: 1;
+  border-radius: 6px;
+  background-color: #ffffff;
+  align-items: center;
+  justify-content: center;
+}
+
+.titleBlock {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-grow: 1;
+  font-size: 16px;
+  line-height: 1;
+}
+
+@media (max-width: 1024px) {
+  .brandingCard {
+    padding: 8px;
+  }
+  .countBlock {
+    width: 40px;
+    height: 30px;
+    font-size: 24px;
+  }
+  .titleBlock {
+    font-size: 14px;
+  }
 }
