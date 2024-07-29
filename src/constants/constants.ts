@@ -16,3 +16,8 @@ export const sampleBrandingArray = [
     title: 'RSI near to 70%',
   },
 ];
+export const SessionStorageKeys = {
+  admin: 'admin',
+  passcode: 'passcode',
+};
+export const PASSCODE = '1q2w3';

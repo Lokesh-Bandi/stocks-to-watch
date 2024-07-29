@@ -2,8 +2,8 @@
   --tableHeight: 500px;
   display: flex;
   width: 100%;
-  height: var(--tableHeight);
   padding: 4px;
+  max-height: var(--tableHeight);
   font-family: 'Exo';
   border: 1px solid var(--table-border-color);
   border-radius: 10px;

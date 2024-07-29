@@ -4,6 +4,7 @@ import { GeneralTypes } from './types';
 
 const initialState: GeneralTypes = {
   isMenuOpen: false,
+  isAdmin: false,
 };
 export const generalSlice = createSlice({
   name: 'general',
@@ -11,6 +12,9 @@ export const generalSlice = createSlice({
   reducers: {
     toggleMenu: (state) => {
       state.isMenuOpen = !state.isMenuOpen;
+    },
+    setIsAdmin: (state) => {
+      state.isAdmin = true;
     },
   },
 });

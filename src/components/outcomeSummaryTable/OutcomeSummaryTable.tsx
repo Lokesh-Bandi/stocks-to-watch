@@ -37,7 +37,7 @@ export const OutcomeSummaryTable = ({
         </div>
         <div className={styles.separationLine}></div>
         <div className={styles.tableBody}>
-          {Array(40)
+          {Array(title === 'Top Gainers' ? 10 : 20)
             .fill(0)
             .map((each, indP) => {
               return (
