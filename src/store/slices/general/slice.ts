@@ -1,10 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { GeneralTypes } from './types';
 
 const initialState: GeneralTypes = {
   isMenuOpen: false,
   isAdmin: false,
+  alertType: null,
 };
 export const generalSlice = createSlice({
   name: 'general',
@@ -15,6 +16,12 @@ export const generalSlice = createSlice({
     },
     setIsAdmin: (state) => {
       state.isAdmin = true;
+    },
+    setAlertType: (state, action: PayloadAction<GeneralTypes['alertType']>) => {
+      state.alertType = action.payload;
+    },
+    resetAlertType: (state) => {
+      state.alertType = null;
     },
   },
 });

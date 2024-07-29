@@ -5,12 +5,14 @@ import {
 } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
+import { adminSlice } from './slices/admin';
 import { generalSlice } from './slices/general';
 import { sampleSlice } from './slices/sample';
 
 export const reducers = {
   [sampleSlice.name]: sampleSlice.reducer,
   [generalSlice.name]: generalSlice.reducer,
+  [adminSlice.name]: adminSlice.reducer,
 };
 export const createStore = (reducers: Record<string, Reducer>) => {
   const store = configureStore({

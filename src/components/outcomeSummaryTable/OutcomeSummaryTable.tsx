@@ -59,7 +59,7 @@ export const OutcomeSummaryTable = ({
                       );
                     })}
                     <div
-                      data-tooltip-id="my-tooltip"
+                      data-tooltip-id="appTooltip"
                       data-tooltip-content="Hello to you too!"
                       data-tooltip-variant="info"
                     >

@@ -1,0 +1,79 @@
+.alertOverlay {
+  z-index: 10000;
+  position: fixed;
+  display: flex;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0, 0.6);
+  align-items: center;
+  justify-content: center;
+}
+.alertBox {
+  position: relative;
+  display: flex;
+  width: 500px;
+  height: 200px;
+  padding: 20px;
+  border-radius: 6px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.alertTitle {
+  display: flex;
+  font-family: 'Exo';
+  font-size: 22px;
+  line-height: 1;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+.alertActions {
+  display: flex;
+  width: 100%;
+  padding: 0 20px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-sizing: border-box;
+}
+.alertButton {
+  width: 40%;
+  padding: 10px;
+  font-family: 'Exo';
+  font-size: 20px;
+  line-height: 1;
+  text-align: center;
+  border-radius: 8px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.alertButtonInfo {
+  color: #ffffff;
+  border: 2px solid #395886;
+  background-color: #395886;
+}
+.alertButtonCancel {
+  color: #000000;
+  border: 2px solid #000000;
+  background-color: #ffffff;
+}
+
+.closeIcon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .alertBox {
+    margin: 14px;
+  }
+}

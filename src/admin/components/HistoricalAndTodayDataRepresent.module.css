@@ -1,0 +1,44 @@
+.mainSection {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.acitonStatusSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.acitonStatusItem {
+  padding: 10px;
+  font-family: 'Exo';
+  font-size: 16px;
+  line-height: 1;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.acitonStatusItem:hover {
+  color: #ffffff;
+}
+.acitonStatusItem_success {
+  background-color: #c5efc2;
+}
+.acitonStatusItem_success:hover {
+  background-color: #1b4e17;
+}
+.acitonStatusItem_fail {
+  background-color: #f4e3e3;
+}
+.acitonStatusItem_fail:hover {
+  background-color: #5e1a1a;
+}
+.actionOutcome {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #395886;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
