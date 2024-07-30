@@ -5,22 +5,25 @@ import {
 } from '@reduxjs/toolkit';
 
 import { fetchAllStocksDataForTodayAction } from '../../apiActions/getActions/fetchAllStocksDataForTodayAction';
+import { fetchOneStocksDataForTodayAction } from '../../apiActions/getActions/fetchOneStocksDataForTodayAction';
 
 import { AdminType } from './types';
 
 const initialState: AdminType = {
   actionResult: null,
   isLoading: false,
+  oneStockDataForToday: null,
+  stockExchangeCodeToSearch: null,
 };
 export const adminSlice = createSlice({
   name: 'admin',
   initialState: initialState,
   reducers: {
-    setActionResult: (
+    setStockExchangeCodeToSearch: (
       state,
-      action: PayloadAction<AdminType['actionResult']>
+      action: PayloadAction<string | null>
     ) => {
-      state.actionResult = action.payload;
+      state.stockExchangeCodeToSearch = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -31,8 +34,18 @@ export const adminSlice = createSlice({
         state.isLoading = false;
       }
     );
+    builder.addCase(
+      fetchOneStocksDataForTodayAction.fulfilled,
+      (state, action) => {
+        state.oneStockDataForToday = action.payload;
+        state.isLoading = false;
+      }
+    );
     builder.addMatcher(
-      isAsyncThunkAction(fetchAllStocksDataForTodayAction),
+      isAsyncThunkAction(
+        fetchAllStocksDataForTodayAction,
+        fetchOneStocksDataForTodayAction
+      ),
       (state, action) => {
         state.isLoading = action.meta.requestStatus === 'pending';
       }

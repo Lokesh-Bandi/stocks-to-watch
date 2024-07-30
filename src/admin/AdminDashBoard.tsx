@@ -1,20 +1,16 @@
 import { useState } from 'react';
 
-import { ALERT_TYPES } from '../alerts/AlertAction';
-import { useAppDispatch } from '../store/AppStore';
-import { generalActions } from '../store/slices/general';
-
-import { HistoricalAndTodayDataRepresent } from './components/HistoricalAndTodayDataRepresent';
-import { ACTIONS } from './contants';
+import { TabDispatcher } from './components/tabDispatcher/TabDispatcher';
+import { ACTION_NAMES, ACTIONS } from './contants';
 
 import styles from './AdminDashboard.module.css';
 
 export const AdminDashBoard = () => {
-  const dispatch = useAppDispatch();
   const [activeInd, setActiveInd] = useState<number | null>(null);
-  const handleActionItemClick = (ind: number, alertToTrigger: ALERT_TYPES) => {
-    setActiveInd(ind);
-    dispatch(generalActions.setAlertType(alertToTrigger));
+  const [activeAction, setActiveAction] = useState<ACTION_NAMES | null>(null);
+  const handleActionItemClick = (ind: number, actionName: ACTION_NAMES) => {
+    setActiveInd(() => ind);
+    setActiveAction(() => actionName);
   };
   return (
     <div className={styles.adminDashboard}>
@@ -27,14 +23,14 @@ export const AdminDashBoard = () => {
             <div
               key={key}
               className={`${styles.actionItem} ${ind === activeInd && styles.actionItem_active}`}
-              onClick={() => handleActionItemClick(ind, value.alertToTrigger)}
+              onClick={() => handleActionItemClick(ind, value.actionName)}
             >
-              {value.actionName}
+              {value.actionTitle}
             </div>
           );
         })}
       </div>
-      <HistoricalAndTodayDataRepresent />
+      <TabDispatcher tabAction={activeAction} />
     </div>
   );
 };

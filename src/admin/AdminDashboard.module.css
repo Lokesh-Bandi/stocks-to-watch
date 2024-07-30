@@ -7,6 +7,21 @@
   flex-direction: column;
   gap: 16px;
 }
+
+/* Scroll bar customiztion */
+.adminDashboard::-webkit-scrollbar {
+  width: 2px;
+}
+
+.adminDashboard::-webkit-scrollbar-track {
+  border-radius: 180px;
+  background-color: transparent;
+}
+
+.adminDashboard::-webkit-scrollbar-thumb {
+  border-radius: 180px;
+  background-color: var(--scrollbar-color);
+}
 .lastUpdatedBlock {
   padding: 16px;
   font-family: 'Exo';
@@ -34,7 +49,7 @@
   line-height: 1;
   border: 2px solid #395886;
   border-radius: 10px;
-  background-color: #B1c9ef;
+  background-color: #ffffff;
   cursor: pointer;
 }
 .actionItem_active {

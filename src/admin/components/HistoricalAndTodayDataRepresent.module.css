@@ -6,6 +6,23 @@
   flex-direction: column;
   gap: 20px;
 }
+.button_danger {
+  padding: 10px 26px;
+  font-family: 'Exo';
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1;
+  color: #ffffff;
+  border-radius: 10px;
+  background-color: #5e1a1a;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.button_danger:hover {
+  color: #5e1a1a;
+  border: 1px solid #5e1a1a;
+  background-color: #ffffff;
+}
 .acitonStatusSection {
   display: flex;
   align-items: center;

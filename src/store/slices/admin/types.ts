@@ -18,4 +18,16 @@ export interface AdminType {
     DBErrors: ActionResultDBErrorType[];
     message: string;
   } | null;
+  stockExchangeCodeToSearch: string | null;
+  oneStockDataForToday: {
+    stockExchangeCode: string;
+    api: {
+      status: string;
+      ack: unknown;
+    };
+    db: {
+      status: string;
+      ack: unknown;
+    };
+  } | null;
 }

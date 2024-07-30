@@ -28,6 +28,7 @@ module.exports = {
     'react/jsx-uses-react': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',
+    'jsx-a11y/no-noninteractive-element-interactions': 'off',
     'react/react-in-jsx-scope': 'off',
     'prettier/prettier': 'warn',
     '@typescript-eslint/explicit-module-boundary-types': 'off',

@@ -17,4 +17,12 @@ export const ALERTS: Record<ALERT_TYPES, ALERT_OBJ_TYPE> = {
     overlayClickToClose: true,
     onOk: ALERT_ACTIONS[ALERT_TYPES.TodayDataConfirmation_A],
   },
+  [ALERT_TYPES.TodayDataConfirmation_S]: {
+    title: 'Do you want to proceed for updating todays data for one stocks?',
+    ok: true,
+    close: true,
+    closeIcon: true,
+    overlayClickToClose: true,
+    onOk: ALERT_ACTIONS[ALERT_TYPES.TodayDataConfirmation_S],
+  },
 };

@@ -1,24 +1,22 @@
 import { ALERT_TYPES } from '../alerts/AlertAction';
 
-// const API_ENDPOINTS = {
-//   todayDataAll: 'http://localhost:3000/today/all/nifty500',
-//   historicalDataAll: 'http://localhost:3000/historicalData/all/nifty500/50',
-//   historicalDataForOneStock: 'http://localhost:3000/historicalData/RVNL',
-//   todayData: 'http://localhost:3000/today/YESBANK',
-//   stockData: 'http://localhost:3000/stock-data/JAIBALAJI?noOfDays=3',
-//   rsi: 'http://localhost:3000/ta/RVNL?ti=rsi&interval=4hour',
-//   mfi: 'http://localhost:3000/ta/RVNL?ti=mfi&interval=4hour',
-//   obv: 'http://localhost:3000/ta/RVNL?ti=obv&interval=4hour',
-//   rsiAll: 'http://localhost:3000/ta/all/nifty500?ti=rsi',
-//   mfiAll: 'http://localhost:3000/ta/all/nifty500?ti=mfi',
-// };
+export enum ACTION_NAMES {
+  updateTodayDataForAll = 'updateTodayDataForAll',
+  udpatetodayDataForSingleStock = 'udpatetodayDataForSingleStock',
+}
 export const ACTIONS: Record<
   string,
-  { actionName: string; alertToTrigger: ALERT_TYPES }
+  { actionName: ACTION_NAMES; actionTitle: string; alertToTrigger: ALERT_TYPES }
 > = {
-  todayDataForAll: {
-    actionName: `Today's Data (ALL)`,
+  updateTodayDataForAll: {
+    actionName: ACTION_NAMES.updateTodayDataForAll,
+    actionTitle: `Update DB(Today-ALL)`,
     alertToTrigger: ALERT_TYPES.TodayDataConfirmation_A,
+  },
+  udpatetodayDataForSingleStock: {
+    actionName: ACTION_NAMES.udpatetodayDataForSingleStock,
+    actionTitle: `Update DB(Today-ONE)`,
+    alertToTrigger: ALERT_TYPES.TodayDataConfirmation_S,
   },
   //   historicalDataForAll: {
   //     actionName: 'Historical Data (ALL)',
