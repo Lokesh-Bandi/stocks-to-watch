@@ -9,7 +9,10 @@ export const adminSlice = createSlice({
   name: 'admin',
   initialState: initialState,
   reducers: {
-    setActionResult: (state, action: PayloadAction<unknown>) => {
+    setActionResult: (
+      state,
+      action: PayloadAction<AdminType['actionResult']>
+    ) => {
       state.actionResult = action.payload;
     },
   },
