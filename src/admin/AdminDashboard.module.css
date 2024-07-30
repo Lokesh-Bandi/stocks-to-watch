@@ -37,6 +37,10 @@
   background-color: #B1c9ef;
   cursor: pointer;
 }
+.actionItem_active {
+  color: #ffffff;
+  background-color: #395886;
+}
 .actionItem:hover {
   color: #ffffff;
   background-color: #395886;

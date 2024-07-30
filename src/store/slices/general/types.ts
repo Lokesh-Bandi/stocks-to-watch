@@ -1,10 +1,7 @@
-import { ALERT_TYPES } from '../../../alerts/AlertTypes';
+import { ALERT_TYPES } from '../../../alerts/AlertAction';
 
 export interface GeneralTypes {
   isMenuOpen: boolean;
   isAdmin: boolean;
-  alertType: {
-    alertName: ALERT_TYPES;
-    callback?: (...params: unknown[]) => void | Promise<void>;
-  } | null;
+  alertType: ALERT_TYPES | null;
 }

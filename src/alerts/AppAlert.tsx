@@ -10,42 +10,42 @@ import styles from './AppAlert.module.css';
 
 export const AppAlert = () => {
   const dispatch = useAppDispatch();
-  const alert = useGeneralSlice.getAlert();
-  const [alertType, setAlertType] = useState<ALERT_OBJ_TYPE | null>(null);
+  const alertType = useGeneralSlice.getAlert();
+  const [alertContent, setAlertContent] = useState<ALERT_OBJ_TYPE | null>(null);
 
   useEffect(() => {
-    if (!alert) return;
-    setAlertType(ALERTS[alert.alertName]);
-  }, [alert]);
+    if (!alertType) return;
+    setAlertContent(ALERTS[alertType]);
+  }, [alertType]);
   const dismissAlert = () => {
     dispatch(generalActions.resetAlertType());
   };
   const handleOverlayClick = () => {
-    if (alertType?.overlayClickToClose) {
+    if (alertContent?.overlayClickToClose) {
       dismissAlert();
     }
   };
   const handleCloseIcon = () => {
-    if (alertType?.closeIcon) {
+    if (alertContent?.closeIcon) {
       dismissAlert();
     }
   };
   const handleOk = async () => {
-    if (!alert) return;
-    await alert.callback?.();
+    if (!alertContent) return;
+    await alertContent?.onOk?.();
   };
-  if (!alert) return null;
+  if (!alertType) return null;
   return (
     <div className={styles.alertOverlay} onClick={handleOverlayClick}>
       <div className={styles.alertBox}>
-        {alertType?.close && (
+        {alertContent?.close && (
           <div className={styles.closeIcon} onClick={handleCloseIcon}>
             <CloseIcon />
           </div>
         )}
-        <div className={styles.alertTitle}>{alertType?.title}</div>
+        <div className={styles.alertTitle}>{alertContent?.title}</div>
         <div className={styles.alertActions}>
-          {alertType?.close && (
+          {alertContent?.close && (
             <div
               className={`${styles.alertButton} ${styles.alertButtonCancel}`}
               onClick={dismissAlert}
@@ -53,7 +53,7 @@ export const AppAlert = () => {
               {'Cancel'}
             </div>
           )}
-          {alertType?.ok && (
+          {alertContent?.ok && (
             <div
               className={`${styles.alertButton} ${styles.alertButtonInfo}`}
               onClick={handleOk}

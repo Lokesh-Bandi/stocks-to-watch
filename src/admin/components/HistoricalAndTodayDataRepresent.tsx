@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+import { Spinner } from '../../components/spinner/Spinner';
 import { useAdminSlice } from '../../store/slices/admin';
 
 import styles from './HistoricalAndTodayDataRepresent.module.css';
@@ -8,6 +9,7 @@ interface HistoricalAndTodayDataRepresentProps {}
 export const HistoricalAndTodayDataRepresent =
   ({}: HistoricalAndTodayDataRepresentProps) => {
     const actionResult = useAdminSlice.getActionResult();
+    const isLoading = useAdminSlice.isLoading();
     const [apiSuccessStocksArray, setApiSuccessStocksArray] = useState<
       string[] | null
     >(null);
@@ -48,7 +50,8 @@ export const HistoricalAndTodayDataRepresent =
       setDbErrors(DBErrors);
       setAckMessage(message);
     }, [actionResult]);
-
+    if (isLoading) return <Spinner />;
+    if (!actionResult) return null;
     return (
       <div className={styles.mainSection}>
         <div className={styles.acitonStatusSection}>

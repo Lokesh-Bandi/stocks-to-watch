@@ -6,4 +6,7 @@ export const useAdminSlice = {
   getActionResult: (): AdminType['actionResult'] => {
     return useAppSelector(({ admin }) => admin.actionResult);
   },
+  isLoading: (): boolean => {
+    return useAppSelector(({ admin }) => admin.isLoading);
+  },
 };

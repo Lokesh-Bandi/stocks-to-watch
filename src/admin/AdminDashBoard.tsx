@@ -1,9 +1,9 @@
-import { ALERT_TYPES } from '../alerts/AlertTypes';
+import { useState } from 'react';
+
+import { ALERT_TYPES } from '../alerts/AlertAction';
 import { useAppDispatch } from '../store/AppStore';
-import { adminActions } from '../store/slices/admin';
 import { generalActions } from '../store/slices/general';
 
-import { fetchCall } from './api/fetchCalls';
 import { HistoricalAndTodayDataRepresent } from './components/HistoricalAndTodayDataRepresent';
 import { ACTIONS } from './contants';
 
@@ -11,17 +11,10 @@ import styles from './AdminDashboard.module.css';
 
 export const AdminDashBoard = () => {
   const dispatch = useAppDispatch();
-  const handleActionItemClick = async (actionURL: string) => {
-    const response = await fetchCall(actionURL);
-    dispatch(adminActions.setActionResult(response));
-  };
-  const showAlert = (actionURL: string) => {
-    dispatch(
-      generalActions.setAlertType({
-        alertName: ALERT_TYPES.CONFIRMATION,
-        callback: () => handleActionItemClick(actionURL),
-      })
-    );
+  const [activeInd, setActiveInd] = useState<number | null>(null);
+  const handleActionItemClick = (ind: number, alertToTrigger: ALERT_TYPES) => {
+    setActiveInd(ind);
+    dispatch(generalActions.setAlertType(alertToTrigger));
   };
   return (
     <div className={styles.adminDashboard}>
@@ -29,12 +22,12 @@ export const AdminDashBoard = () => {
         {`Last updated on  :  ${Date.now()}`}
       </div>
       <div className={styles.actionsSection}>
-        {Object.entries(ACTIONS).map(([key, value]) => {
+        {Object.entries(ACTIONS).map(([key, value], ind) => {
           return (
             <div
               key={key}
-              className={styles.actionItem}
-              onClick={() => showAlert(value.actionURL)}
+              className={`${styles.actionItem} ${ind === activeInd && styles.actionItem_active}`}
+              onClick={() => handleActionItemClick(ind, value.alertToTrigger)}
             >
               {value.actionName}
             </div>

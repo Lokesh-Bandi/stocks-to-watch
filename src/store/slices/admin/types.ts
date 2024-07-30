@@ -7,6 +7,7 @@ export interface ActionResultDBErrorType {
   dbError: string;
 }
 export interface AdminType {
+  isLoading: boolean;
   actionResult: {
     apiSuccessArray: string[];
     apiErrorArray: string[];

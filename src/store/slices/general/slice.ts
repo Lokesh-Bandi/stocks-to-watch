@@ -1,5 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import { ALERT_TYPES } from '../../../alerts/AlertAction';
+
 import { GeneralTypes } from './types';
 
 const initialState: GeneralTypes = {
@@ -17,7 +19,7 @@ export const generalSlice = createSlice({
     setIsAdmin: (state) => {
       state.isAdmin = true;
     },
-    setAlertType: (state, action: PayloadAction<GeneralTypes['alertType']>) => {
+    setAlertType: (state, action: PayloadAction<ALERT_TYPES>) => {
       state.alertType = action.payload;
     },
     resetAlertType: (state) => {
