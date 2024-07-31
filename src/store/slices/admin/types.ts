@@ -6,6 +6,11 @@ export interface ActionResultDBErrorType {
   stockExchangeCode: string;
   dbError: string;
 }
+
+export interface ResponseType {
+  status: string;
+  ack: unknown;
+}
 export interface AdminType {
   isLoading: boolean;
   actionResult: {
@@ -19,6 +24,8 @@ export interface AdminType {
     message: string;
   } | null;
   stockExchangeCodeToSearch: string | null;
+  instrumentalCodeToUpdate: string | null;
+  instrumentalCodeUpdatePostResponse: ResponseType | null;
   oneStockDataForToday: {
     stockExchangeCode: string;
     api: {

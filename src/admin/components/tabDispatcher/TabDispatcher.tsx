@@ -1,5 +1,6 @@
 import { ACTION_NAMES } from '../../contants';
 import { HistoricalAndTodayDataRepresent } from '../HistoricalAndTodayDataRepresent';
+import { InstrumentalCodeUpdateTemplate } from '../instrumentalCodeUpdate/InstrumentalCodeUpdateTemplate';
 import { SingleStockDataTemplate } from '../singleStockData/SingleStockDataTemplate';
 
 interface TabDispatcherProps {
@@ -15,6 +16,8 @@ export const TabDispatcher = ({ tabAction }: TabDispatcherProps) => {
             return <HistoricalAndTodayDataRepresent />;
           case ACTION_NAMES.udpatetodayDataForSingleStock:
             return <SingleStockDataTemplate />;
+          case ACTION_NAMES.updateInstrumentalCode:
+            return <InstrumentalCodeUpdateTemplate />;
           default:
             return <div></div>;
         }

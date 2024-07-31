@@ -6,6 +6,7 @@ import {
 
 import { fetchAllStocksDataForTodayAction } from '../../apiActions/getActions/fetchAllStocksDataForTodayAction';
 import { fetchOneStocksDataForTodayAction } from '../../apiActions/getActions/fetchOneStocksDataForTodayAction';
+import { updateOneInstrumentalCodeAction } from '../../apiActions/postActions/updateOneInstrumentalCodeAction';
 
 import { AdminType } from './types';
 
@@ -14,6 +15,8 @@ const initialState: AdminType = {
   isLoading: false,
   oneStockDataForToday: null,
   stockExchangeCodeToSearch: null,
+  instrumentalCodeToUpdate: null,
+  instrumentalCodeUpdatePostResponse: null,
 };
 export const adminSlice = createSlice({
   name: 'admin',
@@ -24,6 +27,12 @@ export const adminSlice = createSlice({
       action: PayloadAction<string | null>
     ) => {
       state.stockExchangeCodeToSearch = action.payload;
+    },
+    setInstrumentalCodeToUpdate: (
+      state,
+      action: PayloadAction<string | null>
+    ) => {
+      state.instrumentalCodeToUpdate = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -41,10 +50,19 @@ export const adminSlice = createSlice({
         state.isLoading = false;
       }
     );
+    builder.addCase(
+      updateOneInstrumentalCodeAction.fulfilled,
+      (state, action) => {
+        console.log(action.payload);
+        state.instrumentalCodeUpdatePostResponse = action.payload;
+        state.isLoading = false;
+      }
+    );
     builder.addMatcher(
       isAsyncThunkAction(
         fetchAllStocksDataForTodayAction,
-        fetchOneStocksDataForTodayAction
+        fetchOneStocksDataForTodayAction,
+        updateOneInstrumentalCodeAction
       ),
       (state, action) => {
         state.isLoading = action.meta.requestStatus === 'pending';

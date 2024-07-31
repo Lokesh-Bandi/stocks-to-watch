@@ -36,13 +36,13 @@ export const SearchBox = ({
   };
 
   return (
-    <div style={{ width: '300px', margin: '0 auto', position: 'relative' }}>
+    <div className={styles.searchBlock}>
       <input
         className={styles.searchInput}
         type="text"
         value={searchTerm}
         onChange={handleInputChange}
-        placeholder="Search..."
+        placeholder="Search for a stock..."
       />
       {filteredRecommendations.length > 0 && (
         <ul className={styles.listSection}>

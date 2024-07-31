@@ -1,6 +1,6 @@
 import { useAppSelector } from '../../AppStore';
 
-import { AdminType } from './types';
+import { AdminType, ResponseType } from './types';
 
 export const useAdminSlice = {
   getActionResult: (): AdminType['actionResult'] => {
@@ -11,6 +11,11 @@ export const useAdminSlice = {
   },
   getStockExchangeCodeToSearch: (): string | null => {
     return useAppSelector(({ admin }) => admin.stockExchangeCodeToSearch);
+  },
+  getInstrumentalCodeUpdatePostResponse: (): ResponseType | null => {
+    return useAppSelector(
+      ({ admin }) => admin.instrumentalCodeUpdatePostResponse
+    );
   },
   isLoading: (): boolean => {
     return useAppSelector(({ admin }) => admin.isLoading);

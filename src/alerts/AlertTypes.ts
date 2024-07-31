@@ -25,4 +25,13 @@ export const ALERTS: Record<ALERT_TYPES, ALERT_OBJ_TYPE> = {
     overlayClickToClose: true,
     onOk: ALERT_ACTIONS[ALERT_TYPES.TodayDataConfirmation_S],
   },
+  [ALERT_TYPES.InstrumentalCodeUpdate_S]: {
+    title:
+      'Do you want to proceed for updating Instrumental code for one stocks?',
+    ok: true,
+    close: true,
+    closeIcon: true,
+    overlayClickToClose: true,
+    onOk: ALERT_ACTIONS[ALERT_TYPES.InstrumentalCodeUpdate_S],
+  },
 };

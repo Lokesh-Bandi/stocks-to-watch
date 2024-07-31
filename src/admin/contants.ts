@@ -3,6 +3,7 @@ import { ALERT_TYPES } from '../alerts/AlertAction';
 export enum ACTION_NAMES {
   updateTodayDataForAll = 'updateTodayDataForAll',
   udpatetodayDataForSingleStock = 'udpatetodayDataForSingleStock',
+  updateInstrumentalCode = 'updateInstrumentalCode',
 }
 export const ACTIONS: Record<
   string,
@@ -17,6 +18,11 @@ export const ACTIONS: Record<
     actionName: ACTION_NAMES.udpatetodayDataForSingleStock,
     actionTitle: `Update DB(Today-ONE)`,
     alertToTrigger: ALERT_TYPES.TodayDataConfirmation_S,
+  },
+  updateInstrumentalCode: {
+    actionName: ACTION_NAMES.updateInstrumentalCode,
+    actionTitle: `Update IC(ONE)`,
+    alertToTrigger: ALERT_TYPES.InstrumentalCodeUpdate_S,
   },
   //   historicalDataForAll: {
   //     actionName: 'Historical Data (ALL)',

@@ -15,7 +15,7 @@ class FetcherRoot {
     { time: number; payload: AxiosResponse['data'] }
   > = {};
   private SUCCESS_STATUS_CODE = 200;
-  private SUCCESS_STATUS_CODE_POST = 201;
+  private SUCCESS_STATUS_CODE_POST = 200;
 
   public static getInstance(): FetcherRoot {
     if (!this.instance) {

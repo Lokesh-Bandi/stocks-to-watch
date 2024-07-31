@@ -1,5 +1,6 @@
 import { fetchAllStocksDataForTodayAction } from '../store/apiActions/getActions/fetchAllStocksDataForTodayAction';
 import { fetchOneStocksDataForTodayAction } from '../store/apiActions/getActions/fetchOneStocksDataForTodayAction';
+import { updateOneInstrumentalCodeAction } from '../store/apiActions/postActions/updateOneInstrumentalCodeAction';
 import { AppStore } from '../store/AppStore';
 
 export enum ALERT_TYPES {
@@ -8,7 +9,9 @@ export enum ALERT_TYPES {
   // HistorocalDataConfirmation_S = 'HistorocalDataConfirmation_SINGLE',
   TodayDataConfirmation_A = 'TodayDataConfirmation_ALL',
   TodayDataConfirmation_S = 'TodayDataConfirmation_SINGLE',
+  InstrumentalCodeUpdate_S = 'InstrumentalCodeUpdate_SINGLE',
 }
+
 export const ALERT_ACTIONS = {
   [ALERT_TYPES.TodayDataConfirmation_A]: () => {
     AppStore.dispatch(fetchAllStocksDataForTodayAction());
@@ -19,6 +22,17 @@ export const ALERT_ACTIONS = {
     } = AppStore.getState();
     AppStore.dispatch(
       fetchOneStocksDataForTodayAction(stockExchangeCodeToSearch)
+    );
+  },
+  [ALERT_TYPES.InstrumentalCodeUpdate_S]: () => {
+    const {
+      admin: { stockExchangeCodeToSearch, instrumentalCodeToUpdate },
+    } = AppStore.getState();
+    AppStore.dispatch(
+      updateOneInstrumentalCodeAction({
+        stockExchangeCode: stockExchangeCodeToSearch,
+        ic: instrumentalCodeToUpdate,
+      })
     );
   },
 };

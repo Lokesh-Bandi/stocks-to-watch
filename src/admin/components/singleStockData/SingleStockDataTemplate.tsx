@@ -28,21 +28,17 @@ export const SingleStockDataTemplate = () => {
       {isLoading ? <Spinner /> : null}
       {singleStockData && !isLoading ? (
         <div className={styles.contentSection}>
-          {singleStockData ? (
-            <>
-              <h2>{singleStockData?.stockExchangeCode}</h2>
-              <div>
-                <h3>{`API: ${singleStockData?.api.status}`}</h3>
-                {singleStockData?.api.status === API_STATUS.error && (
-                  <div>{JSON.stringify(singleStockData.api.ack)}</div>
-                )}
-              </div>
-              <div>
-                <h3>{`DB: ${singleStockData?.db.status}`}</h3>
-                <div>{JSON.stringify(singleStockData?.db.ack)}</div>
-              </div>
-            </>
-          ) : null}
+          <h2>{singleStockData?.stockExchangeCode}</h2>
+          <div>
+            <h3>{`API: ${singleStockData?.api.status}`}</h3>
+            {singleStockData?.api.status === API_STATUS.error && (
+              <div>{JSON.stringify(singleStockData.api.ack)}</div>
+            )}
+          </div>
+          <div>
+            <h3>{`DB: ${singleStockData?.db.status}`}</h3>
+            <div>{JSON.stringify(singleStockData?.db.ack)}</div>
+          </div>
         </div>
       ) : null}
     </div>
