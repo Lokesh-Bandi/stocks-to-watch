@@ -1,7 +1,6 @@
-import { Tooltip } from 'react-tooltip';
-
 import { AdminDashBoard } from '../../admin/AdminDashBoard';
 import { AppAlert } from '../../alerts/AppAlert';
+import { AppPortal } from '../../appPortal/AppPortal';
 import { useAppSelector } from '../../store/AppStore';
 import { AppContentConnected } from '../appContent/AppContentConnected';
 import { AppContentHeaderConnected } from '../appContent/appContentHeader/AppContentHeaderConnected';
@@ -28,13 +27,7 @@ export const AppGridConnected = () => {
       <AppContentHeaderConnected />
       <AppContentConnected />
       <AppOverlay />
-      <Tooltip
-        id="appTooltip"
-        style={{
-          fontSize: '16px',
-        }}
-      />
-      {/* <Outlet /> */}
+      <AppPortal />
     </div>
   );
 };

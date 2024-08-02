@@ -1,5 +1,4 @@
 import { MouseEventHandler } from 'react';
-import { Link } from 'react-router-dom';
 
 import { useModifiers } from '../../hooks/useModifiers';
 
@@ -24,12 +23,7 @@ export const DrawerItem = ({ itemName, active, onClick }: DrawerItemProps) => {
   );
   return (
     <div className={mods} onClick={onClick}>
-      <Link
-        to={`/${itemName !== 'dashboard' ? itemName : ''}`}
-        className={styles.noUnderline}
-      >
-        {itemName}
-      </Link>
+      {itemName}
     </div>
   );
 };

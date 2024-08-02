@@ -37,4 +37,5 @@ export interface AdminType {
       ack: unknown;
     };
   } | null;
+  lastNdays: number | null;
 }

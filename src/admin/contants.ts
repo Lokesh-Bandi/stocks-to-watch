@@ -4,6 +4,8 @@ export enum ACTION_NAMES {
   updateTodayDataForAll = 'updateTodayDataForAll',
   udpatetodayDataForSingleStock = 'udpatetodayDataForSingleStock',
   updateInstrumentalCode = 'updateInstrumentalCode',
+  updateLastNdaysFromTodayDataForAll = 'updateLastNdaysFromTodayDataForAll',
+  updateLastNdaysFromTodayDataForOne = 'updateLastNdaysFromTodayDataForOne',
 }
 export const ACTIONS: Record<
   string,
@@ -23,6 +25,16 @@ export const ACTIONS: Record<
     actionName: ACTION_NAMES.updateInstrumentalCode,
     actionTitle: `Update IC(ONE)`,
     alertToTrigger: ALERT_TYPES.InstrumentalCodeUpdate_S,
+  },
+  updateLastNdaysFromTodayDataForAll: {
+    actionName: ACTION_NAMES.updateLastNdaysFromTodayDataForAll,
+    actionTitle: `Update Last N days(ALL)`,
+    alertToTrigger: ALERT_TYPES.LastNDaysFromTodayDataConfirmation_A,
+  },
+  updateLastNdaysFromTodayDataForOne: {
+    actionName: ACTION_NAMES.updateLastNdaysFromTodayDataForOne,
+    actionTitle: `Update Last N days(ONE)`,
+    alertToTrigger: ALERT_TYPES.LastNDaysFromTodayDataConfirmation_S,
   },
   //   historicalDataForAll: {
   //     actionName: 'Historical Data (ALL)',

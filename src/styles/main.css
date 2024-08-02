@@ -2,7 +2,8 @@
 
 @font-face {
   font-family: 'Exo';
-  src: local('Exo'), url(./fonts/Exo.ttf) format('truetype');
+  font-weight: 500;
+  src: local('Exo'), url(./fonts/Exo.woff2) format('woff2');
 }
 
 /* Scroll bar customiztion */

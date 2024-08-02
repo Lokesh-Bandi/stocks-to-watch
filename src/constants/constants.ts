@@ -48,6 +48,8 @@ export const API_ENDPOINTS = {
   rsiAll: `${SERVER_URL}/ta/all/nifty500?ti=rsi`,
   mfiAll: `${SERVER_URL}/ta/all/nifty500?ti=mfi`,
   instrumentalCodeUpdate: `${SERVER_URL}/meta/ic/#StockExchangeCode#`,
+  lastNDaysFromTodayAll: `${SERVER_URL}/today/ln/all/nifty500`,
+  lastNdaysFromTodayOne: `${SERVER_URL}/today/ln/#StockExchangeCode#`,
 };
 // const naem = {
 //   apiSuccessArray: ['RVNL', 'YESBANK'],

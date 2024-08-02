@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { useAppSelector } from '../../store/AppStore';
 import { useIsSmallerThanWide } from '../../styles/media';
@@ -10,28 +11,14 @@ import { DrawerItem } from './drawerItems/DrawerItem';
 import styles from './Drawer.module.css';
 
 export const DrawerConnected = () => {
+  const navigate = useNavigate();
   const isMenuOpen = useAppSelector(({ general }) => general.isMenuOpen);
   const isMobile = useIsSmallerThanWide();
   const [activeInd, setActiveInd] = useState(0);
-  const drawerList = [
-    'dashboard',
-    'rsi',
-    'mfi',
-    'dashboard',
-    'rsi',
-    'mfi',
-    'dashboard',
-    'rsi',
-    'mfi',
-    'dashboard',
-    'rsi',
-    'mfi',
-    'dashboard',
-    'rsi',
-    'mfi',
-  ];
+  const drawerList = ['dashboard', 'rsi', 'mfi'];
   const handleDrawerItemClick = (ind: number) => {
     setActiveInd(ind);
+    navigate(ind === 0 ? '/' : `/${drawerList[ind]}`);
   };
   const mods = useModifiers(
     styles,

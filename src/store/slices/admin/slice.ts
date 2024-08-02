@@ -6,6 +6,8 @@ import {
 
 import { fetchAllStocksDataForTodayAction } from '../../apiActions/getActions/fetchAllStocksDataForTodayAction';
 import { fetchOneStocksDataForTodayAction } from '../../apiActions/getActions/fetchOneStocksDataForTodayAction';
+import { udpateLastNDaysFromTodayForAllAction } from '../../apiActions/postActions/udpateLastNDaysFromTodayForAllAction';
+import { udpateLastNDaysFromTodayForOneAction } from '../../apiActions/postActions/udpateLastNDaysFromTodayForOneAction';
 import { updateOneInstrumentalCodeAction } from '../../apiActions/postActions/updateOneInstrumentalCodeAction';
 
 import { AdminType } from './types';
@@ -17,6 +19,7 @@ const initialState: AdminType = {
   stockExchangeCodeToSearch: null,
   instrumentalCodeToUpdate: null,
   instrumentalCodeUpdatePostResponse: null,
+  lastNdays: null,
 };
 export const adminSlice = createSlice({
   name: 'admin',
@@ -33,6 +36,9 @@ export const adminSlice = createSlice({
       action: PayloadAction<string | null>
     ) => {
       state.instrumentalCodeToUpdate = action.payload;
+    },
+    setLastNDaysFromToday: (state, action: PayloadAction<number | null>) => {
+      state.lastNdays = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -51,6 +57,20 @@ export const adminSlice = createSlice({
       }
     );
     builder.addCase(
+      udpateLastNDaysFromTodayForAllAction.fulfilled,
+      (state, action) => {
+        state.actionResult = action.payload;
+        state.isLoading = false;
+      }
+    );
+    builder.addCase(
+      udpateLastNDaysFromTodayForOneAction.fulfilled,
+      (state, action) => {
+        state.oneStockDataForToday = action.payload;
+        state.isLoading = false;
+      }
+    );
+    builder.addCase(
       updateOneInstrumentalCodeAction.fulfilled,
       (state, action) => {
         console.log(action.payload);
@@ -62,7 +82,9 @@ export const adminSlice = createSlice({
       isAsyncThunkAction(
         fetchAllStocksDataForTodayAction,
         fetchOneStocksDataForTodayAction,
-        updateOneInstrumentalCodeAction
+        updateOneInstrumentalCodeAction,
+        udpateLastNDaysFromTodayForAllAction,
+        udpateLastNDaysFromTodayForOneAction
       ),
       (state, action) => {
         state.isLoading = action.meta.requestStatus === 'pending';

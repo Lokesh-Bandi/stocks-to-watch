@@ -1,3 +1,5 @@
+import { ChangeEvent, useState } from 'react';
+
 import { ALERT_TYPES } from '../../../alerts/AlertAction';
 import { SearchBox } from '../../../components/searchBox/SearchBox';
 import { Spinner } from '../../../components/spinner/Spinner';
@@ -9,19 +11,45 @@ import { generalActions } from '../../../store/slices/general';
 
 import styles from './SingleStockDataTemplate.module.css';
 
-export const SingleStockDataTemplate = () => {
+interface SingleStockDataTemplateProps {
+  alertType: ALERT_TYPES;
+  daysField?: boolean;
+}
+export const SingleStockDataTemplate = ({
+  alertType,
+  daysField = false,
+}: SingleStockDataTemplateProps) => {
   const dispatch = useAppDispatch();
   const isLoading = useAdminSlice.isLoading();
+  const [days, setDays] = useState<number>(0);
   const singleStockData = useAdminSlice.getOneStockDataForToday();
   const handleOptionClick = (stockExchangeCode: string) => {
     dispatch(adminActions.setStockExchangeCodeToSearch(stockExchangeCode));
   };
   const handleUpdateButton = () => {
-    dispatch(generalActions.setAlertType(ALERT_TYPES.TodayDataConfirmation_S));
+    dispatch(generalActions.setAlertType(alertType));
+  };
+  const handleDaysInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const value = event.target?.value;
+    setDays(parseInt(value));
+    dispatch(adminActions.setLastNDaysFromToday(parseInt(value)));
   };
   return (
     <div className={styles.mainSection}>
       <SearchBox recommondationList={NIFTY_500} onClick={handleOptionClick} />
+      {daysField && (
+        <div className={styles.daysInputBlock}>
+          <label htmlFor="daysInput">{'Last N days data(Not Today):'}</label>
+          <input
+            name="daysInput"
+            className={styles.searchInput}
+            type="number"
+            value={days}
+            onChange={handleDaysInputChange}
+            placeholder="Enter days..."
+          />
+        </div>
+      )}
       <div className={styles.update_button} onClick={handleUpdateButton}>
         {'Update One'}
       </div>

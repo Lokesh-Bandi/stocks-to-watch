@@ -12,11 +12,23 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(ts|js)x?$/,
-        exclude: /node_modules/,
+        test: /\.tsx?$/,
+        // exclude: /node_modules/,
         use: [
           {
             loader: 'babel-loader',
+            options: {
+              presets: [
+                ['@babel/preset-env'],
+                [
+                  '@babel/preset-react',
+                  {
+                    runtime: 'automatic',
+                  },
+                ],
+                ['@babel/preset-typescript'],
+              ],
+            },
           },
         ],
       },
@@ -55,12 +67,20 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|jpg|jpeg|gif)$/i,
+        test: /\.(png|jpg|jpeg|gif|svg)$/i,
         type: 'asset/resource',
+        resourceQuery: { not: /raw/ },
+        generator: {
+          filename: 'assets/images/[path][name][ext]',
+        },
       },
       {
-        test: /\.(woff(2)?|eot|ttf|otf|svg)$/,
-        type: 'asset/inline',
+        test: /\.(woff2)$/,
+        type: 'asset/resource',
+        resourceQuery: { not: /raw/ },
+        generator: {
+          filename: 'assets/fonts/[name][ext]',
+        },
       },
     ],
   },
@@ -73,7 +93,7 @@ module.exports = {
       template: './src/index.ejs',
       filename: 'index.html',
       templateParameters: {
-        title: 'React Typescript Template',
+        title: 'Stocks to watch',
         loader: {
           js: fs.readFileSync(
             path.resolve(__dirname, '..', './src/loader/loader.js'),
