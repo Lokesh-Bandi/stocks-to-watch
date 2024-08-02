@@ -2,13 +2,15 @@ import { fetchAllStocksDataForTodayAction } from '../store/apiActions/getActions
 import { fetchOneStocksDataForTodayAction } from '../store/apiActions/getActions/fetchOneStocksDataForTodayAction';
 import { udpateLastNDaysFromTodayForAllAction } from '../store/apiActions/postActions/udpateLastNDaysFromTodayForAllAction';
 import { udpateLastNDaysFromTodayForOneAction } from '../store/apiActions/postActions/udpateLastNDaysFromTodayForOneAction';
+import { updatehHistoricalStockDataForAllAction } from '../store/apiActions/postActions/updatehHistoricalStockDataForAllAction';
+import { updateHistoricalStockDataForOneAction } from '../store/apiActions/postActions/updateHistoricalStockDataForOneAction';
 import { updateOneInstrumentalCodeAction } from '../store/apiActions/postActions/updateOneInstrumentalCodeAction';
 import { AppStore } from '../store/AppStore';
 
 export enum ALERT_TYPES {
   // CONFIRMATION = 'confirmation',
-  // HistorocalDataConfirmation_A = 'HistorocalDataConfirmation_ALL',
-  // HistorocalDataConfirmation_S = 'HistorocalDataConfirmation_SINGLE',
+  HistoricalDataConfirmation_A = 'HistoricalDataConfirmation_ALL',
+  HistoricalDataConfirmation_S = 'HistoricalDataConfirmation_SINGLE',
   TodayDataConfirmation_A = 'TodayDataConfirmation_ALL',
   TodayDataConfirmation_S = 'TodayDataConfirmation_SINGLE',
   InstrumentalCodeUpdate_S = 'InstrumentalCodeUpdate_SINGLE',
@@ -17,6 +19,17 @@ export enum ALERT_TYPES {
 }
 
 export const ALERT_ACTIONS = {
+  [ALERT_TYPES.HistoricalDataConfirmation_A]: () => {
+    AppStore.dispatch(updatehHistoricalStockDataForAllAction());
+  },
+  [ALERT_TYPES.HistoricalDataConfirmation_S]: () => {
+    const {
+      admin: { stockExchangeCodeToSearch },
+    } = AppStore.getState();
+    AppStore.dispatch(
+      updateHistoricalStockDataForOneAction(stockExchangeCodeToSearch)
+    );
+  },
   [ALERT_TYPES.TodayDataConfirmation_A]: () => {
     AppStore.dispatch(fetchAllStocksDataForTodayAction());
   },

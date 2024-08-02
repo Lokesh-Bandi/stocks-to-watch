@@ -9,6 +9,23 @@ export type ALERT_OBJ_TYPE = {
   onOk?: () => void;
 };
 export const ALERTS: Record<ALERT_TYPES, ALERT_OBJ_TYPE> = {
+  [ALERT_TYPES.HistoricalDataConfirmation_A]: {
+    title:
+      'Do you want to proceed for updating Historical data for all stocks?',
+    ok: true,
+    close: true,
+    closeIcon: true,
+    overlayClickToClose: true,
+    onOk: ALERT_ACTIONS[ALERT_TYPES.HistoricalDataConfirmation_A],
+  },
+  [ALERT_TYPES.HistoricalDataConfirmation_S]: {
+    title: 'Do you want to proceed for updating Historical data for one stock?',
+    ok: true,
+    close: true,
+    closeIcon: true,
+    overlayClickToClose: true,
+    onOk: ALERT_ACTIONS[ALERT_TYPES.HistoricalDataConfirmation_S],
+  },
   [ALERT_TYPES.TodayDataConfirmation_A]: {
     title: 'Do you want to proceed for updating todays data for all stocks?',
     ok: true,

@@ -8,6 +8,8 @@ import { fetchAllStocksDataForTodayAction } from '../../apiActions/getActions/fe
 import { fetchOneStocksDataForTodayAction } from '../../apiActions/getActions/fetchOneStocksDataForTodayAction';
 import { udpateLastNDaysFromTodayForAllAction } from '../../apiActions/postActions/udpateLastNDaysFromTodayForAllAction';
 import { udpateLastNDaysFromTodayForOneAction } from '../../apiActions/postActions/udpateLastNDaysFromTodayForOneAction';
+import { updatehHistoricalStockDataForAllAction } from '../../apiActions/postActions/updatehHistoricalStockDataForAllAction';
+import { updateHistoricalStockDataForOneAction } from '../../apiActions/postActions/updateHistoricalStockDataForOneAction';
 import { updateOneInstrumentalCodeAction } from '../../apiActions/postActions/updateOneInstrumentalCodeAction';
 
 import { AdminType } from './types';
@@ -42,6 +44,20 @@ export const adminSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
+    builder.addCase(
+      updatehHistoricalStockDataForAllAction.fulfilled,
+      (state, action) => {
+        state.actionResult = action.payload;
+        state.isLoading = false;
+      }
+    );
+    builder.addCase(
+      updateHistoricalStockDataForOneAction.fulfilled,
+      (state, action) => {
+        state.oneStockDataForToday = action.payload;
+        state.isLoading = false;
+      }
+    );
     builder.addCase(
       fetchAllStocksDataForTodayAction.fulfilled,
       (state, action) => {
@@ -84,7 +100,9 @@ export const adminSlice = createSlice({
         fetchOneStocksDataForTodayAction,
         updateOneInstrumentalCodeAction,
         udpateLastNDaysFromTodayForAllAction,
-        udpateLastNDaysFromTodayForOneAction
+        udpateLastNDaysFromTodayForOneAction,
+        updateHistoricalStockDataForOneAction,
+        updatehHistoricalStockDataForAllAction
       ),
       (state, action) => {
         state.isLoading = action.meta.requestStatus === 'pending';

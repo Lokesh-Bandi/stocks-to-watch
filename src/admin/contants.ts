@@ -1,6 +1,8 @@
 import { ALERT_TYPES } from '../alerts/AlertAction';
 
 export enum ACTION_NAMES {
+  updateHistoricalDataForAll = 'updateHistoricalDataForAll',
+  udpateHistoricalDataForSingleStock = 'udpateHistoricalDataForSingleStock',
   updateTodayDataForAll = 'updateTodayDataForAll',
   udpatetodayDataForSingleStock = 'udpatetodayDataForSingleStock',
   updateInstrumentalCode = 'updateInstrumentalCode',
@@ -11,6 +13,16 @@ export const ACTIONS: Record<
   string,
   { actionName: ACTION_NAMES; actionTitle: string; alertToTrigger: ALERT_TYPES }
 > = {
+  updateHistoricalDataForAll: {
+    actionName: ACTION_NAMES.updateHistoricalDataForAll,
+    actionTitle: `Update HD(50-ALL)`,
+    alertToTrigger: ALERT_TYPES.HistoricalDataConfirmation_A,
+  },
+  udpateHistoricalDataForSingleStock: {
+    actionName: ACTION_NAMES.udpateHistoricalDataForSingleStock,
+    actionTitle: `Update HD(50-ONE)`,
+    alertToTrigger: ALERT_TYPES.HistoricalDataConfirmation_S,
+  },
   updateTodayDataForAll: {
     actionName: ACTION_NAMES.updateTodayDataForAll,
     actionTitle: `Update DB(Today-ALL)`,

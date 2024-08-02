@@ -40,7 +40,7 @@ export const API_ENDPOINTS = {
   allStocksDataForToday: `${SERVER_URL}/today/all/nifty500`,
   oneStockDataForToday: `${SERVER_URL}/today/#StockExchangeCode#`,
   historicalDataAll: `${SERVER_URL}/historicalData/all/nifty500/50`,
-  historicalDataForOneStock: `${SERVER_URL}/historicalData/RVNL`,
+  historicalDataForOneStock: `${SERVER_URL}/historicalData/#StockExchangeCode#`,
   stockData: `${SERVER_URL}/stock-data/JAIBALAJI?noOfDays=3`,
   rsi: `${SERVER_URL}/ta/RVNL?ti=rsi&interval=4hour`,
   mfi: `${SERVER_URL}/ta/RVNL?ti=mfi&interval=4hour`,

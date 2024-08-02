@@ -13,6 +13,18 @@ export const TabDispatcher = ({ tabAction }: TabDispatcherProps) => {
     <>
       {(() => {
         switch (tabAction) {
+          case ACTION_NAMES.updateHistoricalDataForAll:
+            return (
+              <HistoricalAndTodayDataRepresent
+                alertType={ALERT_TYPES.HistoricalDataConfirmation_A}
+              />
+            );
+          case ACTION_NAMES.udpateHistoricalDataForSingleStock:
+            return (
+              <SingleStockDataTemplate
+                alertType={ALERT_TYPES.HistoricalDataConfirmation_S}
+              />
+            );
           case ACTION_NAMES.updateTodayDataForAll:
             return (
               <HistoricalAndTodayDataRepresent
