@@ -50,7 +50,11 @@ export const API_ENDPOINTS = {
   instrumentalCodeUpdate: `${SERVER_URL}/meta/ic/#StockExchangeCode#`,
   lastNDaysFromTodayAll: `${SERVER_URL}/today/ln/all/nifty500`,
   lastNdaysFromTodayOne: `${SERVER_URL}/today/ln/#StockExchangeCode#`,
-  techIndAndKeyStocks: `${SERVER_URL}/ui/key-stocks`,
+  techIndsAndKeyStocks: `${SERVER_URL}/ta/tis/nifty500`,
+};
+
+export const UI_API_ENDPOINTS = {
+  keyStocksAPI: `${SERVER_URL}/ui/key-stocks`,
 };
 
 export type ValueOf<T> = T[keyof T];

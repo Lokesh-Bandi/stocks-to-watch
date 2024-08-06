@@ -8,7 +8,7 @@ export const updateTechnicalIndicatorsAndKeyStocksAction = createAsyncThunk(
   'sample/updateTechnicalIndicatorsAndKeyStocks',
   () => {
     return Fetcher.post<AdminType['techIndAndKeyStocks']>(
-      API_ENDPOINTS.techIndAndKeyStocks,
+      API_ENDPOINTS.techIndsAndKeyStocks,
       {}
     );
   }
