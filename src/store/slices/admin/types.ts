@@ -37,5 +37,9 @@ export interface AdminType {
       ack: unknown;
     };
   } | null;
+  techIndAndKeyStocks: {
+    tiValues: ResponseType;
+    keyStocks: ResponseType;
+  } | null;
   lastNdays: number | null;
 }

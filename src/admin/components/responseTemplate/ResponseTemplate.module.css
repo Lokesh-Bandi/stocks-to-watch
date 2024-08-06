@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  width: 100%;
+  padding: 4px;
+  font-family: 'Exo';
+  line-height: 1;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #E9F5DB;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+}
+.title {
+  padding: 8px 16px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+  border-radius: 8px;
+  background-color: #718355;
+  box-sizing: border-box;
+}
+
+.status {
+  display: flex;
+  gap: 20px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.statusContent {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.ack {
+  display: flex;
+  gap: 20px;
+  font-size: 18px;
+  font-weight: 600;
+}

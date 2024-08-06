@@ -17,6 +17,9 @@ export const useAdminSlice = {
       ({ admin }) => admin.instrumentalCodeUpdatePostResponse
     );
   },
+  getTechIndAndKeyStocks: (): AdminType['techIndAndKeyStocks'] => {
+    return useAppSelector(({ admin }) => admin.techIndAndKeyStocks);
+  },
   isLoading: (): boolean => {
     return useAppSelector(({ admin }) => admin.isLoading);
   },

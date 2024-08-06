@@ -11,6 +11,7 @@ import { udpateLastNDaysFromTodayForOneAction } from '../../apiActions/postActio
 import { updatehHistoricalStockDataForAllAction } from '../../apiActions/postActions/updatehHistoricalStockDataForAllAction';
 import { updateHistoricalStockDataForOneAction } from '../../apiActions/postActions/updateHistoricalStockDataForOneAction';
 import { updateOneInstrumentalCodeAction } from '../../apiActions/postActions/updateOneInstrumentalCodeAction';
+import { updateTechnicalIndicatorsAndKeyStocksAction } from '../../apiActions/postActions/updateTechnicalIndicatorsAndKeyStocksAction';
 
 import { AdminType } from './types';
 
@@ -21,6 +22,7 @@ const initialState: AdminType = {
   stockExchangeCodeToSearch: null,
   instrumentalCodeToUpdate: null,
   instrumentalCodeUpdatePostResponse: null,
+  techIndAndKeyStocks: null,
   lastNdays: null,
 };
 export const adminSlice = createSlice({
@@ -89,8 +91,14 @@ export const adminSlice = createSlice({
     builder.addCase(
       updateOneInstrumentalCodeAction.fulfilled,
       (state, action) => {
-        console.log(action.payload);
         state.instrumentalCodeUpdatePostResponse = action.payload;
+        state.isLoading = false;
+      }
+    );
+    builder.addCase(
+      updateTechnicalIndicatorsAndKeyStocksAction.fulfilled,
+      (state, action) => {
+        state.techIndAndKeyStocks = action.payload;
         state.isLoading = false;
       }
     );
@@ -102,7 +110,8 @@ export const adminSlice = createSlice({
         udpateLastNDaysFromTodayForAllAction,
         udpateLastNDaysFromTodayForOneAction,
         updateHistoricalStockDataForOneAction,
-        updatehHistoricalStockDataForAllAction
+        updatehHistoricalStockDataForAllAction,
+        updateTechnicalIndicatorsAndKeyStocksAction
       ),
       (state, action) => {
         state.isLoading = action.meta.requestStatus === 'pending';

@@ -5,10 +5,10 @@ import { udpateLastNDaysFromTodayForOneAction } from '../store/apiActions/postAc
 import { updatehHistoricalStockDataForAllAction } from '../store/apiActions/postActions/updatehHistoricalStockDataForAllAction';
 import { updateHistoricalStockDataForOneAction } from '../store/apiActions/postActions/updateHistoricalStockDataForOneAction';
 import { updateOneInstrumentalCodeAction } from '../store/apiActions/postActions/updateOneInstrumentalCodeAction';
+import { updateTechnicalIndicatorsAndKeyStocksAction } from '../store/apiActions/postActions/updateTechnicalIndicatorsAndKeyStocksAction';
 import { AppStore } from '../store/AppStore';
 
 export enum ALERT_TYPES {
-  // CONFIRMATION = 'confirmation',
   HistoricalDataConfirmation_A = 'HistoricalDataConfirmation_ALL',
   HistoricalDataConfirmation_S = 'HistoricalDataConfirmation_SINGLE',
   TodayDataConfirmation_A = 'TodayDataConfirmation_ALL',
@@ -16,6 +16,7 @@ export enum ALERT_TYPES {
   InstrumentalCodeUpdate_S = 'InstrumentalCodeUpdate_SINGLE',
   LastNDaysFromTodayDataConfirmation_A = 'LastNDaysFromTodayDataConfirmation_ALL',
   LastNDaysFromTodayDataConfirmation_S = 'LastNDaysFromTodayDataConfirmation_SINGLE',
+  TechIndAndKeyStocks = 'TechIndAndKeyStocks',
 }
 
 export const ALERT_ACTIONS = {
@@ -72,5 +73,8 @@ export const ALERT_ACTIONS = {
         days: lastNdays,
       })
     );
+  },
+  [ALERT_TYPES.TechIndAndKeyStocks]: () => {
+    AppStore.dispatch(updateTechnicalIndicatorsAndKeyStocksAction());
   },
 };

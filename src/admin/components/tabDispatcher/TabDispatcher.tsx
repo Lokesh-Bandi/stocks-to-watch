@@ -1,8 +1,10 @@
 import { ALERT_TYPES } from '../../../alerts/AlertAction';
 import { ACTION_NAMES } from '../../contants';
+import { BaseTemplate } from '../baseTemplate/BaseTemplate';
 import { HistoricalAndTodayDataRepresent } from '../HistoricalAndTodayDataRepresent';
 import { InstrumentalCodeUpdateTemplate } from '../instrumentalCodeUpdate/InstrumentalCodeUpdateTemplate';
 import { SingleStockDataTemplate } from '../singleStockData/SingleStockDataTemplate';
+import { TechIndAndKeyStocks } from '../techIndAndKeyStocks/TechIndAndKeyStocks';
 
 interface TabDispatcherProps {
   tabAction: ACTION_NAMES | null;
@@ -53,6 +55,8 @@ export const TabDispatcher = ({ tabAction }: TabDispatcherProps) => {
             );
           case ACTION_NAMES.updateInstrumentalCode:
             return <InstrumentalCodeUpdateTemplate />;
+          case ACTION_NAMES.updateTechIndAndKeyStocks:
+            return <BaseTemplate renderComponent={<TechIndAndKeyStocks />} />;
           default:
             return <div></div>;
         }

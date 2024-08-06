@@ -8,6 +8,7 @@ export enum ACTION_NAMES {
   updateInstrumentalCode = 'updateInstrumentalCode',
   updateLastNdaysFromTodayDataForAll = 'updateLastNdaysFromTodayDataForAll',
   updateLastNdaysFromTodayDataForOne = 'updateLastNdaysFromTodayDataForOne',
+  updateTechIndAndKeyStocks = 'updateTechIndAndKeyStocks',
 }
 export const ACTIONS: Record<
   string,
@@ -48,40 +49,9 @@ export const ACTIONS: Record<
     actionTitle: `Update Last N days(ONE)`,
     alertToTrigger: ALERT_TYPES.LastNDaysFromTodayDataConfirmation_S,
   },
-  //   historicalDataForAll: {
-  //     actionName: 'Historical Data (ALL)',
-  //     fetchAction: fetchAllStocksDataForTodayAction,
-  //   },
-  // historicalDataForOneStock: {
-  //   actionName: 'Historical Data (One)',
-  //   fetchAction: API_ENDPOINTS.historicalDataForOneStock,
-  // },
-  // todayDataForOneStock: {
-  //   actionName: `Today's Data (One)`,
-  //   fetchAction: API_ENDPOINTS.todayData,
-  // },
-  // RSI: {
-  //   actionName: `RSI`,
-  //   fetchAction: API_ENDPOINTS.rsi,
-  // },
-  // MFI: {
-  //   actionName: `MFI`,
-  //   fetchAction: API_ENDPOINTS.mfi,
-  // },
-  // OBV: {
-  //   actionName: `OBV`,
-  //   fetchAction: API_ENDPOINTS.obv,
-  // },
-  // rsiAll: {
-  //   actionName: `RSI (ALL)`,
-  //   fetchAction: API_ENDPOINTS.rsiAll,
-  // },
-  // mfiAll: {
-  //   actionName: `MFI (ALL)`,
-  //   fetchAction: API_ENDPOINTS.mfiAll,
-  // },
-  // stockData: {
-  //   actionName: 'Stock Data',
-  //   fetchAction: API_ENDPOINTS.stockData,
-  // },
+  updateTechIndAndKeyStocks: {
+    actionName: ACTION_NAMES.updateTechIndAndKeyStocks,
+    actionTitle: `Update TI's & Key stocks`,
+    alertToTrigger: ALERT_TYPES.TechIndAndKeyStocks,
+  },
 };
