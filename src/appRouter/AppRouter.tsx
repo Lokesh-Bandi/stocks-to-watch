@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import { AppContentBodyConnected } from '../components/appContent/appContentBody/AppContentBodyConnected';
 import { AppGridConnected } from '../components/appGrid/AppGridConnected';
-import { DashBoardConnected } from '../components/technicalIndicators/DashBoardConnected';
+import { DashBoardConnected } from '../components/dashboard/DashBoardConnected';
 import { MFIConnected } from '../components/technicalIndicators/MFIConnected';
+import { RSIConnected } from '../components/technicalIndicators/RSIConnected';
 
 export const AppRouter = () => {
   return (
@@ -11,7 +11,7 @@ export const AppRouter = () => {
       <Routes>
         <Route path="/" element={<AppGridConnected />}>
           <Route index element={<DashBoardConnected />} />
-          <Route path="/rsi" element={<AppContentBodyConnected />} />
+          <Route path="/rsi" element={<RSIConnected />} />
           <Route path="/mfi" element={<MFIConnected />} />
         </Route>
       </Routes>

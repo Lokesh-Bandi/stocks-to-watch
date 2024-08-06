@@ -7,11 +7,13 @@ import styles from './OutcomeSummaryTable.module.css';
 interface OutcomeSummaryTableProps {
   title: string;
   headers?: string[];
-  data?: string[];
+  data?: unknown[];
   colWidths?: string[];
 }
 export const OutcomeSummaryTable = ({
   title,
+  headers,
+  data,
   colWidths = ['10%', '60%', '20%', '10%'],
 }: OutcomeSummaryTableProps) => {
   return (
@@ -19,7 +21,7 @@ export const OutcomeSummaryTable = ({
       <div className={styles.tableTitle}>{title}</div>
       <div className={styles.table}>
         <div className={styles.tableHeader}>
-          {['No.', 'Stock Exchange Code', 'RSI'].map((eachItem, ind) => {
+          {headers?.map((eachItem, ind) => {
             return (
               <div
                 key={ind}
@@ -37,38 +39,37 @@ export const OutcomeSummaryTable = ({
         </div>
         <div className={styles.separationLine}></div>
         <div className={styles.tableBody}>
-          {Array(title === 'Top Gainers' ? 10 : 20)
-            .fill(0)
-            .map((each, indP) => {
-              return (
-                <div key={indP} className={styles.tableBodyRow}>
-                  <div className={styles.tableBodyContent}>
-                    {[indP, 'YESBANK', '60.84'].map((eachItem, ind) => {
-                      return (
-                        <div
-                          key={ind}
-                          className={styles.tableBodyItem}
-                          style={
-                            {
-                              '--colWidth': colWidths[ind],
-                            } as CSSProperties
-                          }
-                        >
-                          {eachItem}
-                        </div>
-                      );
-                    })}
-                    <div
-                      data-tooltip-id="appTooltip"
-                      data-tooltip-content="Hello to you too!"
-                      data-tooltip-variant="info"
-                    >
-                      <img src={infoIcon} alt="info" />
-                    </div>
+          {data?.map((eachStockData, indP) => {
+            const { stockExchangeCode, value } = eachStockData;
+            return (
+              <div key={indP} className={styles.tableBodyRow}>
+                <div className={styles.tableBodyContent}>
+                  {[indP + 1, stockExchangeCode, value].map((eachItem, ind) => {
+                    return (
+                      <div
+                        key={ind}
+                        className={styles.tableBodyItem}
+                        style={
+                          {
+                            '--colWidth': colWidths[ind],
+                          } as CSSProperties
+                        }
+                      >
+                        {eachItem}
+                      </div>
+                    );
+                  })}
+                  <div
+                    data-tooltip-id="appTooltip"
+                    data-tooltip-content="Hello to you too!"
+                    data-tooltip-variant="info"
+                  >
+                    <img src={infoIcon} alt="info" />
                   </div>
                 </div>
-              );
-            })}
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

@@ -1,0 +1,40 @@
+.appContentBody {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.brandingSection {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 138px;
+  column-gap: 16px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+@media (max-width: 1024px) {
+  .brandingSection {
+    gap: 12px;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: 84px 84px;
+    padding: 4px;
+  }
+}
+.summaryTableSection {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 500px;
+  width: 100%;
+  flex-grow: 1;
+  gap: 16px;
+}
+
+@media (max-width: 1024px) {
+ .summaryTableSection {
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: min-content;
+  row-gap: 16px;
+ } 
+}
+

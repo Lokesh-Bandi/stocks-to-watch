@@ -1,0 +1,41 @@
+import {
+  BOLLINGERBANDS_CATEGORIES_VALUES_TYPE,
+  MFI_CATEGORIES_VALUES_TYPE,
+  RSI_CATEGORIES_VALUES_TYPE,
+  TECHNICAL_INDICATORS_VALUES_TYPE,
+  TIME_INTERVAL_VALUES_TYPE,
+} from '../../../constants/constants';
+
+export interface KEY_STOCK_ITEM_TYPE {
+  stockExchangeCode: string;
+  value: number | Record<string, number | string | boolean>;
+}
+export interface RSI_ResponseType
+  extends Partial<Record<RSI_CATEGORIES_VALUES_TYPE, KEY_STOCK_ITEM_TYPE[]>> {}
+
+export interface MFI_ResponseType
+  extends Partial<Record<MFI_CATEGORIES_VALUES_TYPE, KEY_STOCK_ITEM_TYPE[]>> {}
+
+export interface BollingerBands_ResponseType
+  extends Partial<
+    Record<BOLLINGERBANDS_CATEGORIES_VALUES_TYPE, KEY_STOCK_ITEM_TYPE[]>
+  > {}
+
+export interface IntervalDataType<T>
+  extends Partial<Record<TIME_INTERVAL_VALUES_TYPE, T>> {}
+
+export interface CustomTechnicalIndicatorType
+  extends Partial<
+    Record<
+      TECHNICAL_INDICATORS_VALUES_TYPE,
+      | IntervalDataType<RSI_ResponseType>
+      | IntervalDataType<MFI_ResponseType>
+      | IntervalDataType<BollingerBands_ResponseType>
+      | null
+    >
+  > {}
+export interface TechIndType {
+  technicalIndicators: CustomTechnicalIndicatorType;
+  lastUpdated: string;
+  isLoading: boolean;
+}

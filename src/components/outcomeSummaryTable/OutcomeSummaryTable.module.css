@@ -2,7 +2,7 @@
   --tableHeight: 500px;
   display: flex;
   width: 100%;
-  padding: 4px;
+  padding: 12px;
   max-height: var(--tableHeight);
   font-family: 'Exo';
   border: 1px solid var(--table-border-color);
@@ -23,6 +23,7 @@
   line-height: 1;
   border-radius: 10px 10px 0 0;
   align-items: center;
+  justify-content: center;
 }
 
 .table {

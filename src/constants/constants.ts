@@ -50,39 +50,59 @@ export const API_ENDPOINTS = {
   instrumentalCodeUpdate: `${SERVER_URL}/meta/ic/#StockExchangeCode#`,
   lastNDaysFromTodayAll: `${SERVER_URL}/today/ln/all/nifty500`,
   lastNdaysFromTodayOne: `${SERVER_URL}/today/ln/#StockExchangeCode#`,
-  techIndAndKeyStocks: `${SERVER_URL}/ta/tis/nifty500`,
+  techIndAndKeyStocks: `${SERVER_URL}/ui/key-stocks`,
 };
-// const naem = {
-//   apiSuccessArray: ['RVNL', 'YESBANK'],
-//   apiErrorArray: ['ANURAS'],
-//   DBCreatedArray: [],
-//   DBUpdatedArray: ['RVNL', 'YESBANK'],
-//   DBErrorArray: ['ANURAS'],
-//   APIErrors: [
-//     {
-//       stockExchangeCode: 'ANURAS',
-//       apiError: {
-//         status: 'error',
-//         errors: [
-//           {
-//             errorCode: 'UDAPI100011',
-//             message: 'Invalid Instrument key',
-//             propertyPath: null,
-//             invalidValue: null,
-//             error_code: 'UDAPI100011',
-//             property_path: null,
-//             invalid_value: null,
-//           },
-//         ],
-//       },
-//     },
-//   ],
-//   DBErrors: [
-//     {
-//       stockExchangeCode: 'ANURAS',
-//       dbError:
-//         'Error updating document for the NSE_EQ|INE930P010181 --> MongoServerError: The argument to $each in $push must be an array but it was of type: object',
-//     },
-//   ],
-//   message: 'Data save sucessfully -- Your manual stop count has been reached',
-// };
+
+export type ValueOf<T> = T[keyof T];
+
+export const TIME_INTERVAL = {
+  One_Minute: '1minute',
+  Five_Minute: '5minute',
+  Ten_Minute: '10minute',
+  Fifteen_Minute: '15minute',
+  Thirty_Minute: '30minute',
+  Four_Hour: '4hour',
+  One_Day: '1day',
+} as const;
+export type TIME_INTERVAL_VALUES_TYPE = ValueOf<typeof TIME_INTERVAL>;
+
+export const RSI_CATEGORIES = {
+  lessthan30: 'lessthan30',
+  morethan70: 'morethan70',
+  nearTo30: 'nearTo30',
+  nearTo70: 'nearTo70',
+} as const;
+export type RSI_CATEGORIES_VALUES_TYPE = ValueOf<typeof RSI_CATEGORIES>;
+
+export const MFI_CATEGORIES = {
+  lessthan20: 'lessthan20',
+  morethan80: 'morethan80',
+  nearTo20: 'nearTo20',
+  nearTo80: 'nearTo80',
+} as const;
+
+export type MFI_CATEGORIES_VALUES_TYPE = ValueOf<typeof MFI_CATEGORIES>;
+
+export const BOLLINGERBANDS_CATEGORIES = {
+  lessthan0: 'lessthan0',
+  morethan1: 'morethan1',
+  nearTo0D1: 'nearTo0D1',
+  nearTo0D9: 'nearTo0D9',
+} as const;
+
+export type BOLLINGERBANDS_CATEGORIES_VALUES_TYPE = ValueOf<
+  typeof BOLLINGERBANDS_CATEGORIES
+>;
+
+export const TECHNICAL_INDICATORS = {
+  rsi: 'rsi',
+  mfi: 'mfi',
+  obv: 'obv',
+  bollingerbands: 'bollingerbands',
+} as const;
+
+export type TECHNICAL_INDICATORS_VALUES_TYPE = ValueOf<
+  typeof TECHNICAL_INDICATORS
+>;
+
+export const TECHNICAL_INDICATORS_ARR = Object.values(TECHNICAL_INDICATORS);

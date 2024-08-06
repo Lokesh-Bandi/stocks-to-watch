@@ -8,11 +8,13 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { adminSlice } from './slices/admin';
 import { generalSlice } from './slices/general';
 import { sampleSlice } from './slices/sample';
+import { technicalIndicatorsSlice } from './slices/technicalIndicators';
 
 export const reducers = {
   [sampleSlice.name]: sampleSlice.reducer,
   [generalSlice.name]: generalSlice.reducer,
   [adminSlice.name]: adminSlice.reducer,
+  [technicalIndicatorsSlice.name]: technicalIndicatorsSlice.reducer,
 };
 export const createStore = (reducers: Record<string, Reducer>) => {
   const store = configureStore({
