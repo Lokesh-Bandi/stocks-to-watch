@@ -12,12 +12,15 @@
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 138px;
   column-gap: 16px;
+  padding: 20px;
+  box-sizing: border-box;
 }
 @media (max-width: 1024px) {
   .brandingSection {
     gap: 12px;
     grid-template-columns: repeat(2,1fr);
     grid-template-rows: 84px 84px;
+    padding: 4px;
   }
 }
 .summaryTableSection {
