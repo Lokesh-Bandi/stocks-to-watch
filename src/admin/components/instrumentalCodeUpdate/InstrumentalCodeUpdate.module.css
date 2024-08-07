@@ -38,9 +38,11 @@
   box-sizing: border-box;
   cursor: pointer;
 }
-.update_button:hover {
-  color: #ffffff;
-  background-color: #5e1a1a;
+@media (hover: hover){ 
+  .update_button:hover {
+    color: #ffffff;
+    background-color: #5e1a1a;
+  }
 }
 .contentSection {
   display: flex;

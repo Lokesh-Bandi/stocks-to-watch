@@ -1,7 +1,7 @@
 .appContentBody {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 8px;
 }
 
 .brandingSection {
@@ -10,7 +10,7 @@
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 138px;
   column-gap: 16px;
-  padding: 20px;
+  padding: 20px 4px;
   box-sizing: border-box;
 }
 @media (max-width: 1024px) {
@@ -28,6 +28,7 @@
   width: 100%;
   flex-grow: 1;
   gap: 16px;
+  transition: all 2s ease-out;
 }
 
 @media (max-width: 1024px) {
@@ -37,4 +38,3 @@
   row-gap: 16px;
  } 
 }
-

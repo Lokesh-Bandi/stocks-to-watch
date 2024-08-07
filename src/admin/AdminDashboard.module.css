@@ -57,9 +57,11 @@
   color: #ffffff;
   background-color: #395886;
 }
-.actionItem:hover {
-  color: #ffffff;
-  background-color: #395886;
+@media (hover: hover){ 
+  .actionItem:hover {
+    color: #ffffff;
+    background-color: #395886;
+  }
 }
 
 

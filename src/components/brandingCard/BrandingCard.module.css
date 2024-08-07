@@ -13,8 +13,11 @@
   transform-origin: center;
   box-shadow: rgba(50, 50, 93, 0.25) 0 13px 27px -5px, rgba(0, 0, 0, 0.3) 0 8px 16px -8px;
 }
-.brandingCard:hover {
-  transform: translateY(-10px);
+
+@media (hover: hover){ 
+  .brandingCard:hover {
+    transform: translateY(-10px);
+  }
 }
 
 .brandingCard_0 {
@@ -57,9 +60,6 @@
 @media (max-width: 1024px) {
   .brandingCard {
     padding: 8px;
-  }
-  .brandingCard:hover {
-    transform: scale(1.05);
   }
   .countBlock {
     width: 40px;

@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 
 import { PASSCODE, SessionStorageKeys } from '../constants/constants';
 import { SessionStorage } from '../storage';
+import { fetchCoreDataAction } from '../store/apiActions/getActions/fetchCoreDataAction';
 import { fetchKeyStocksAction } from '../store/apiActions/getActions/fetchKeyStocksAction';
 import { useAppDispatch } from '../store/AppStore';
 import { generalActions } from '../store/slices/general';
@@ -16,9 +17,9 @@ export const GameInitializer = () => {
     }
   }, [dispath]);
 
-  // Fetching Key stocks for all indicators
   useEffect(() => {
-    dispath(fetchKeyStocksAction());
+    dispath(fetchKeyStocksAction()); // Fetching Key stocks for all indicators
+    dispath(fetchCoreDataAction()); // fetching core data
   }, [dispath]);
 
   return null;

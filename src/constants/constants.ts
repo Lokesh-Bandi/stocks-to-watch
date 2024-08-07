@@ -55,6 +55,7 @@ export const API_ENDPOINTS = {
 
 export const UI_API_ENDPOINTS = {
   keyStocksAPI: `${SERVER_URL}/ui/key-stocks`,
+  coreData: `${SERVER_URL}/ui/core-data`,
 };
 
 export type ValueOf<T> = T[keyof T];
@@ -69,6 +70,12 @@ export const TIME_INTERVAL = {
   One_Day: '1day',
 } as const;
 export type TIME_INTERVAL_VALUES_TYPE = ValueOf<typeof TIME_INTERVAL>;
+
+export const TECH_INDICATOR_TIME_INTERVALS = [
+  TIME_INTERVAL.Fifteen_Minute,
+  TIME_INTERVAL.Four_Hour,
+  TIME_INTERVAL.One_Day,
+];
 
 export const RSI_CATEGORIES = {
   lessthan30: 'lessthan30',

@@ -1,4 +1,4 @@
-import { CSSProperties } from 'react';
+import { CSSProperties, ReactNode } from 'react';
 
 import infoIcon from '../../../assets/icons/info.svg';
 
@@ -7,7 +7,7 @@ import styles from './OutcomeSummaryTable.module.css';
 interface OutcomeSummaryTableProps {
   title: string;
   headers?: string[];
-  data?: unknown[];
+  data?: unknown[][];
   colWidths?: string[];
 }
 export const OutcomeSummaryTable = ({
@@ -40,11 +40,10 @@ export const OutcomeSummaryTable = ({
         <div className={styles.separationLine}></div>
         <div className={styles.tableBody}>
           {data?.map((eachStockData, indP) => {
-            const { stockExchangeCode, value } = eachStockData;
             return (
               <div key={indP} className={styles.tableBodyRow}>
                 <div className={styles.tableBodyContent}>
-                  {[indP + 1, stockExchangeCode, value].map((eachItem, ind) => {
+                  {eachStockData.slice(0, -1).map((eachItem, ind) => {
                     return (
                       <div
                         key={ind}
@@ -55,13 +54,13 @@ export const OutcomeSummaryTable = ({
                           } as CSSProperties
                         }
                       >
-                        {eachItem}
+                        {eachItem as ReactNode}
                       </div>
                     );
                   })}
                   <div
                     data-tooltip-id="appTooltip"
-                    data-tooltip-content="Hello to you too!"
+                    data-tooltip-content={eachStockData.at(-1) as string}
                     data-tooltip-variant="info"
                   >
                     <img src={infoIcon} alt="info" />

@@ -1,6 +1,6 @@
 @keyframes color-change-2x {
   0% {
-    background: #ffffff;
+    background: inherit;
   }
   100% {
     background: var(--drawer-item-active);
@@ -29,8 +29,8 @@
 }
 .drawer-item_active {
   color: #ffffff;
-  -webkit-animation: color-change-2x 0.3s linear alternate both;
-  animation: color-change-2x 0.3s linear alternate both;
+  -webkit-animation: color-change-2x 0.1s linear alternate both;
+  animation: color-change-2x 0.1s linear alternate both;
   box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
 }
 
