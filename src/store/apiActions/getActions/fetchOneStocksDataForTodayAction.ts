@@ -8,10 +8,7 @@ export const fetchOneStocksDataForTodayAction = createAsyncThunk(
   'admin/fetchOneStocksDataForToday',
   (stockExchangeCode: string) => {
     return Fetcher.get<AdminType['oneStockDataForToday']>(
-      API_ENDPOINTS.oneStockDataForToday.replace(
-        '#StockExchangeCode#',
-        stockExchangeCode
-      )
+      API_ENDPOINTS.oneStockDataForToday.replace('#StockExchangeCode#', stockExchangeCode)
     );
   }
 );

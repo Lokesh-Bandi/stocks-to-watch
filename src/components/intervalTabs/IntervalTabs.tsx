@@ -1,7 +1,4 @@
-import {
-  TECH_INDICATOR_TIME_INTERVALS,
-  TIME_INTERVAL_VALUES_TYPE,
-} from '../../constants/constants';
+import { TECH_INDICATOR_TIME_INTERVALS, TIME_INTERVAL_VALUES_TYPE } from '../../constants/constants';
 import { useModifiers } from '../hooks/useModifiers';
 
 import styles from './IntervalTabs.module.css';
@@ -32,11 +29,7 @@ interface IntervalTabITemProps {
   active: boolean;
   onTabClick: (tabName: TIME_INTERVAL_VALUES_TYPE) => void;
 }
-export const IntervalTabITem = ({
-  active,
-  name,
-  onTabClick,
-}: IntervalTabITemProps) => {
+export const IntervalTabITem = ({ active, name, onTabClick }: IntervalTabITemProps) => {
   const mods = useModifiers(styles, 'intervalSectionItem', {
     active: active,
   });

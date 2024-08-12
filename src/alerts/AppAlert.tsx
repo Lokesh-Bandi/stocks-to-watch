@@ -46,18 +46,12 @@ export const AppAlert = () => {
         <div className={styles.alertTitle}>{alertContent?.title}</div>
         <div className={styles.alertActions}>
           {alertContent?.close && (
-            <div
-              className={`${styles.alertButton} ${styles.alertButtonCancel}`}
-              onClick={dismissAlert}
-            >
+            <div className={`${styles.alertButton} ${styles.alertButtonCancel}`} onClick={dismissAlert}>
               {'Cancel'}
             </div>
           )}
           {alertContent?.ok && (
-            <div
-              className={`${styles.alertButton} ${styles.alertButtonInfo}`}
-              onClick={handleOk}
-            >
+            <div className={`${styles.alertButton} ${styles.alertButtonInfo}`} onClick={handleOk}>
               {'Ok'}
             </div>
           )}

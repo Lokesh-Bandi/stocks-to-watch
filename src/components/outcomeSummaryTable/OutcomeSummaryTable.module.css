@@ -122,4 +122,7 @@
   .tableBody {
     max-height: 350px;
   }
+  .tableBodyContent  {
+    font-size: 12px;
+  }
 }

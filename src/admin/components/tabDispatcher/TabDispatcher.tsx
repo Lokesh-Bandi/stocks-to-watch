@@ -1,6 +1,7 @@
 import { ALERT_TYPES } from '../../../alerts/AlertAction';
 import { ACTION_NAMES } from '../../contants';
 import { BaseTemplate } from '../baseTemplate/BaseTemplate';
+import { DownloadInstaPosts } from '../commonTabs/DownloadInstaPosts';
 import { HistoricalAndTodayDataRepresent } from '../HistoricalAndTodayDataRepresent';
 import { InstrumentalCodeUpdateTemplate } from '../instrumentalCodeUpdate/InstrumentalCodeUpdateTemplate';
 import { SingleStockDataTemplate } from '../singleStockData/SingleStockDataTemplate';
@@ -16,23 +17,11 @@ export const TabDispatcher = ({ tabAction }: TabDispatcherProps) => {
       {(() => {
         switch (tabAction) {
           case ACTION_NAMES.updateHistoricalDataForAll:
-            return (
-              <HistoricalAndTodayDataRepresent
-                alertType={ALERT_TYPES.HistoricalDataConfirmation_A}
-              />
-            );
+            return <HistoricalAndTodayDataRepresent alertType={ALERT_TYPES.HistoricalDataConfirmation_A} />;
           case ACTION_NAMES.udpateHistoricalDataForSingleStock:
-            return (
-              <SingleStockDataTemplate
-                alertType={ALERT_TYPES.HistoricalDataConfirmation_S}
-              />
-            );
+            return <SingleStockDataTemplate alertType={ALERT_TYPES.HistoricalDataConfirmation_S} />;
           case ACTION_NAMES.updateTodayDataForAll:
-            return (
-              <HistoricalAndTodayDataRepresent
-                alertType={ALERT_TYPES.TodayDataConfirmation_A}
-              />
-            );
+            return <HistoricalAndTodayDataRepresent alertType={ALERT_TYPES.TodayDataConfirmation_A} />;
           case ACTION_NAMES.updateLastNdaysFromTodayDataForAll:
             return (
               <HistoricalAndTodayDataRepresent
@@ -41,22 +30,17 @@ export const TabDispatcher = ({ tabAction }: TabDispatcherProps) => {
               />
             );
           case ACTION_NAMES.udpatetodayDataForSingleStock:
-            return (
-              <SingleStockDataTemplate
-                alertType={ALERT_TYPES.TodayDataConfirmation_S}
-              />
-            );
+            return <SingleStockDataTemplate alertType={ALERT_TYPES.TodayDataConfirmation_S} />;
           case ACTION_NAMES.updateLastNdaysFromTodayDataForOne:
             return (
-              <SingleStockDataTemplate
-                alertType={ALERT_TYPES.LastNDaysFromTodayDataConfirmation_S}
-                daysField={true}
-              />
+              <SingleStockDataTemplate alertType={ALERT_TYPES.LastNDaysFromTodayDataConfirmation_S} daysField={true} />
             );
           case ACTION_NAMES.updateInstrumentalCode:
             return <InstrumentalCodeUpdateTemplate />;
           case ACTION_NAMES.updateTechIndAndKeyStocks:
             return <BaseTemplate renderComponent={<TechIndAndKeyStocks />} />;
+          case ACTION_NAMES.instaImageGeneration:
+            return <BaseTemplate renderComponent={<DownloadInstaPosts />} />;
           default:
             return <div></div>;
         }

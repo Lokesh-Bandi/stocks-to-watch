@@ -13,9 +13,7 @@ export const useAdminSlice = {
     return useAppSelector(({ admin }) => admin.stockExchangeCodeToSearch);
   },
   getInstrumentalCodeUpdatePostResponse: (): ResponseType | null => {
-    return useAppSelector(
-      ({ admin }) => admin.instrumentalCodeUpdatePostResponse
-    );
+    return useAppSelector(({ admin }) => admin.instrumentalCodeUpdatePostResponse);
   },
   getTechIndAndKeyStocks: (): AdminType['techIndAndKeyStocks'] => {
     return useAppSelector(({ admin }) => admin.techIndAndKeyStocks);

@@ -13,10 +13,7 @@ export const udpateLastNDaysFromTodayForOneAction = createAsyncThunk(
   (data: UpdateOneInstrumentalCodePayLoadType) => {
     console.log(data);
     return Fetcher.post<AdminType['oneStockDataForToday']>(
-      API_ENDPOINTS.lastNdaysFromTodayOne.replace(
-        '#StockExchangeCode#',
-        data.stockExchangeCode
-      ),
+      API_ENDPOINTS.lastNdaysFromTodayOne.replace('#StockExchangeCode#', data.stockExchangeCode),
       {
         days: data.days,
       }

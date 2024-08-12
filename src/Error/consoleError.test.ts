@@ -10,9 +10,7 @@ describe('console error', () => {
 
     consoleError(errorType, errorCode, errorMessage);
 
-    expect(console.log).toHaveBeenCalledWith(
-      `${errorType} ERROR: ${errorCode} - ${errorMessage}`
-    );
+    expect(console.log).toHaveBeenCalledWith(`${errorType} ERROR: ${errorCode} - ${errorMessage}`);
 
     consoleSpy.mockRestore();
   });
@@ -25,9 +23,7 @@ describe('console error', () => {
 
     consoleError(errorType, errorCode, errorMessage);
 
-    expect(console.log).toHaveBeenCalledWith(
-      `${errorType} ERROR: ${errorMessage}`
-    );
+    expect(console.log).toHaveBeenCalledWith(`${errorType} ERROR: ${errorMessage}`);
 
     consoleSpy.mockRestore();
   });

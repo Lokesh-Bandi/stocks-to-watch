@@ -14,9 +14,7 @@ export const AdminDashBoard = () => {
   };
   return (
     <div className={styles.adminDashboard}>
-      <div className={styles.lastUpdatedBlock}>
-        {`Last updated on  :  ${Date.now()}`}
-      </div>
+      <div className={styles.lastUpdatedBlock}>{`Last updated on  :  ${Date.now()}`}</div>
       <div className={styles.actionsSection}>
         {Object.entries(ACTIONS).map(([key, value], ind) => {
           return (

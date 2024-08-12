@@ -1,16 +1,9 @@
 import { useEffect, useState } from 'react';
 
-import {
-  MFI_CATEGORIES,
-  TIME_INTERVAL,
-  TIME_INTERVAL_VALUES_TYPE,
-} from '../../constants/constants';
+import { MFI_CATEGORIES, TIME_INTERVAL, TIME_INTERVAL_VALUES_TYPE } from '../../constants/constants';
 import { MFI_DISPLAY_TITLES, MFI_TABLE } from '../../constants/titles';
 import { useCoreData } from '../../store/slices/coreData';
-import {
-  MFI_ResponseType,
-  useTechnicalIndicatorsSlice,
-} from '../../store/slices/technicalIndicators';
+import { MFI_ResponseType, useTechnicalIndicatorsSlice } from '../../store/slices/technicalIndicators';
 import { BrandingCard } from '../brandingCard/BrandingCard';
 import { IntervalTabs } from '../intervalTabs/IntervalTabs';
 import { OutcomeSummaryTable } from '../outcomeSummaryTable/OutcomeSummaryTable';
@@ -18,12 +11,10 @@ import { OutcomeSummaryTable } from '../outcomeSummaryTable/OutcomeSummaryTable'
 import styles from './common.module.css';
 
 export const MFIConnected = () => {
-  const [activeIntervalTab, setACtiveIntervalTab] =
-    useState<TIME_INTERVAL_VALUES_TYPE>(TIME_INTERVAL.One_Day);
+  const [activeIntervalTab, setACtiveIntervalTab] = useState<TIME_INTERVAL_VALUES_TYPE>(TIME_INTERVAL.One_Day);
   const mfiKeyStocks = useTechnicalIndicatorsSlice.getMfiiKeyStocks();
   const coreData = useCoreData.getCoreData();
-  const [currentIntervalData, setCurrentIntervalData] =
-    useState<MFI_ResponseType | null>(null);
+  const [currentIntervalData, setCurrentIntervalData] = useState<MFI_ResponseType | null>(null);
 
   const handleTabClick = (tabName: TIME_INTERVAL_VALUES_TYPE) => {
     setACtiveIntervalTab(tabName);
@@ -59,19 +50,10 @@ export const MFIConnected = () => {
       <IntervalTabs activeTab={activeIntervalTab} onTabClick={handleTabClick} />
       <div className={styles.brandingSection}>
         {Object.keys(MFI_CATEGORIES).map((mfiKey, ind) => {
-          const categoryKey =
-            MFI_CATEGORIES[mfiKey as keyof typeof MFI_CATEGORIES];
+          const categoryKey = MFI_CATEGORIES[mfiKey as keyof typeof MFI_CATEGORIES];
           const count = currentIntervalData?.[categoryKey]?.length ?? 0;
-          const title =
-            MFI_DISPLAY_TITLES[mfiKey as keyof typeof MFI_DISPLAY_TITLES];
-          return (
-            <BrandingCard
-              key={mfiKey}
-              index={ind}
-              count={count}
-              title={title}
-            />
-          );
+          const title = MFI_DISPLAY_TITLES[mfiKey as keyof typeof MFI_DISPLAY_TITLES];
+          return <BrandingCard key={mfiKey} index={ind} count={count} title={title} />;
         })}
       </div>
       <div className={styles.summaryTableSection}>

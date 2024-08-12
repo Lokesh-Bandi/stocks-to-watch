@@ -1,8 +1,4 @@
-import {
-  createSlice,
-  isAsyncThunkAction,
-  PayloadAction,
-} from '@reduxjs/toolkit';
+import { createSlice, isAsyncThunkAction, PayloadAction } from '@reduxjs/toolkit';
 
 import { fetchAllStocksDataForTodayAction } from '../../apiActions/getActions/fetchAllStocksDataForTodayAction';
 import { fetchOneStocksDataForTodayAction } from '../../apiActions/getActions/fetchOneStocksDataForTodayAction';
@@ -29,16 +25,10 @@ export const adminSlice = createSlice({
   name: 'admin',
   initialState: initialState,
   reducers: {
-    setStockExchangeCodeToSearch: (
-      state,
-      action: PayloadAction<string | null>
-    ) => {
+    setStockExchangeCodeToSearch: (state, action: PayloadAction<string | null>) => {
       state.stockExchangeCodeToSearch = action.payload;
     },
-    setInstrumentalCodeToUpdate: (
-      state,
-      action: PayloadAction<string | null>
-    ) => {
+    setInstrumentalCodeToUpdate: (state, action: PayloadAction<string | null>) => {
       state.instrumentalCodeToUpdate = action.payload;
     },
     setLastNDaysFromToday: (state, action: PayloadAction<number | null>) => {
@@ -46,62 +36,38 @@ export const adminSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(
-      updatehHistoricalStockDataForAllAction.fulfilled,
-      (state, action) => {
-        state.actionResult = action.payload;
-        state.isLoading = false;
-      }
-    );
-    builder.addCase(
-      updateHistoricalStockDataForOneAction.fulfilled,
-      (state, action) => {
-        state.oneStockDataForToday = action.payload;
-        state.isLoading = false;
-      }
-    );
-    builder.addCase(
-      fetchAllStocksDataForTodayAction.fulfilled,
-      (state, action) => {
-        state.actionResult = action.payload;
-        state.isLoading = false;
-      }
-    );
-    builder.addCase(
-      fetchOneStocksDataForTodayAction.fulfilled,
-      (state, action) => {
-        state.oneStockDataForToday = action.payload;
-        state.isLoading = false;
-      }
-    );
-    builder.addCase(
-      udpateLastNDaysFromTodayForAllAction.fulfilled,
-      (state, action) => {
-        state.actionResult = action.payload;
-        state.isLoading = false;
-      }
-    );
-    builder.addCase(
-      udpateLastNDaysFromTodayForOneAction.fulfilled,
-      (state, action) => {
-        state.oneStockDataForToday = action.payload;
-        state.isLoading = false;
-      }
-    );
-    builder.addCase(
-      updateOneInstrumentalCodeAction.fulfilled,
-      (state, action) => {
-        state.instrumentalCodeUpdatePostResponse = action.payload;
-        state.isLoading = false;
-      }
-    );
-    builder.addCase(
-      updateTechnicalIndicatorsAndKeyStocksAction.fulfilled,
-      (state, action) => {
-        state.techIndAndKeyStocks = action.payload;
-        state.isLoading = false;
-      }
-    );
+    builder.addCase(updatehHistoricalStockDataForAllAction.fulfilled, (state, action) => {
+      state.actionResult = action.payload;
+      state.isLoading = false;
+    });
+    builder.addCase(updateHistoricalStockDataForOneAction.fulfilled, (state, action) => {
+      state.oneStockDataForToday = action.payload;
+      state.isLoading = false;
+    });
+    builder.addCase(fetchAllStocksDataForTodayAction.fulfilled, (state, action) => {
+      state.actionResult = action.payload;
+      state.isLoading = false;
+    });
+    builder.addCase(fetchOneStocksDataForTodayAction.fulfilled, (state, action) => {
+      state.oneStockDataForToday = action.payload;
+      state.isLoading = false;
+    });
+    builder.addCase(udpateLastNDaysFromTodayForAllAction.fulfilled, (state, action) => {
+      state.actionResult = action.payload;
+      state.isLoading = false;
+    });
+    builder.addCase(udpateLastNDaysFromTodayForOneAction.fulfilled, (state, action) => {
+      state.oneStockDataForToday = action.payload;
+      state.isLoading = false;
+    });
+    builder.addCase(updateOneInstrumentalCodeAction.fulfilled, (state, action) => {
+      state.instrumentalCodeUpdatePostResponse = action.payload;
+      state.isLoading = false;
+    });
+    builder.addCase(updateTechnicalIndicatorsAndKeyStocksAction.fulfilled, (state, action) => {
+      state.techIndAndKeyStocks = action.payload;
+      state.isLoading = false;
+    });
     builder.addMatcher(
       isAsyncThunkAction(
         fetchAllStocksDataForTodayAction,

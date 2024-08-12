@@ -1,8 +1,4 @@
-import {
-  Reducer,
-  StateFromReducersMapObject,
-  configureStore,
-} from '@reduxjs/toolkit';
+import { Reducer, StateFromReducersMapObject, configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
 import { adminSlice } from './slices/admin';
@@ -28,8 +24,7 @@ export const createStore = (reducers: Record<string, Reducer>) => {
 export const AppStore = createStore(reducers);
 export type AppStoreType = typeof AppStore;
 
-export interface appStoreState
-  extends StateFromReducersMapObject<typeof reducers> {}
+export interface appStoreState extends StateFromReducersMapObject<typeof reducers> {}
 export const useAppSelector: TypedUseSelectorHook<appStoreState> = useSelector;
 
 export type dispatchType = AppStoreType['dispatch'];

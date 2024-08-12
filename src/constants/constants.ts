@@ -35,6 +35,7 @@ export const DB_STATUS = {
 };
 
 export const SERVER_URL = 'http://localhost:3000';
+// export const SERVER_URL = 'http://192.168.36.219:3000';
 
 export const API_ENDPOINTS = {
   allStocksDataForToday: `${SERVER_URL}/today/all/nifty500`,
@@ -101,19 +102,21 @@ export const BOLLINGERBANDS_CATEGORIES = {
   nearTo0D9: 'nearTo0D9',
 } as const;
 
-export type BOLLINGERBANDS_CATEGORIES_VALUES_TYPE = ValueOf<
-  typeof BOLLINGERBANDS_CATEGORIES
->;
+export type BOLLINGERBANDS_CATEGORIES_VALUES_TYPE = ValueOf<typeof BOLLINGERBANDS_CATEGORIES>;
 
 export const TECHNICAL_INDICATORS = {
   rsi: 'rsi',
   mfi: 'mfi',
-  obv: 'obv',
   bollingerbands: 'bollingerbands',
 } as const;
 
-export type TECHNICAL_INDICATORS_VALUES_TYPE = ValueOf<
-  typeof TECHNICAL_INDICATORS
->;
+export type TECHNICAL_INDICATORS_VALUES_TYPE = ValueOf<typeof TECHNICAL_INDICATORS>;
 
 export const TECHNICAL_INDICATORS_ARR = Object.values(TECHNICAL_INDICATORS);
+
+export const DRAWER_ITEMS = {
+  dashboard: 'Dashboard',
+  rsi: 'RSI',
+  mfi: 'MFI',
+  bollingerBands: 'Bollinger Bands',
+};

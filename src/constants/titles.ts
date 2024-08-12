@@ -1,4 +1,4 @@
-import { MFI_CATEGORIES, RSI_CATEGORIES } from './constants';
+import { BOLLINGERBANDS_CATEGORIES, MFI_CATEGORIES, RSI_CATEGORIES } from './constants';
 
 export const RSI_DISPLAY_TITLES = {
   [RSI_CATEGORIES.lessthan30]: 'RSI < 30%',
@@ -9,7 +9,7 @@ export const RSI_DISPLAY_TITLES = {
 
 export const RSI_TABLE = {
   headers: ['No.', 'Stock Exch. Code', 'LTP', 'RSI', 'Info'],
-  colWidths: ['10%', '50%', '15%', '15%', '10%'],
+  colWidths: ['10%', '40%', '20%', '20%', '10%'],
 };
 
 export const MFI_DISPLAY_TITLES = {
@@ -21,5 +21,17 @@ export const MFI_DISPLAY_TITLES = {
 
 export const MFI_TABLE = {
   headers: ['No.', 'Stock Exch. Code', 'LTP', 'MFI', 'Info'],
-  colWidths: ['10%', '50%', '15%', '15%', '10%'],
+  colWidths: ['10%', '40%', '20%', '20%', '10%'],
+};
+
+export const BollingerBands_DISPLAY_TITLES = {
+  [BOLLINGERBANDS_CATEGORIES.lessthan0]: 'Percent B ratio (%B) < 0',
+  [BOLLINGERBANDS_CATEGORIES.morethan1]: 'Percent B ratio (%B) > 1',
+  [BOLLINGERBANDS_CATEGORIES.nearTo0D1]: 'Percent B ratio (%B) near to 0.1',
+  [BOLLINGERBANDS_CATEGORIES.nearTo0D9]: 'Percent B ratio (%B) near to 0.9',
+};
+
+export const BollingerBands_TABLE = {
+  headers: ['No.', 'Stock Exch. Code', 'LTP', '%B', 'Info'],
+  colWidths: ['10%', '40%', '20%', '20%', '10%'],
 };

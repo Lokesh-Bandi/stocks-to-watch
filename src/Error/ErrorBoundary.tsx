@@ -16,11 +16,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
-    consoleError(
-      ErrorTypes.typescriptError,
-      error.name,
-      errorInfo.componentStack ?? ''
-    );
+    consoleError(ErrorTypes.typescriptError, error.name, errorInfo.componentStack ?? '');
     this.setState({ hasError: true });
   }
 

@@ -7,9 +7,6 @@ import { CustomTechnicalIndicatorType } from '../../slices/technicalIndicators';
 interface ResponseType extends CustomTechnicalIndicatorType {
   lastUpdated: string;
 }
-export const fetchKeyStocksAction = createAsyncThunk(
-  'technicalIndicators/fetchKeyStocks',
-  () => {
-    return Fetcher.get<ResponseType>(UI_API_ENDPOINTS.keyStocksAPI);
-  }
-);
+export const fetchKeyStocksAction = createAsyncThunk('technicalIndicators/fetchKeyStocks', () => {
+  return Fetcher.get<ResponseType>(UI_API_ENDPOINTS.keyStocksAPI);
+});

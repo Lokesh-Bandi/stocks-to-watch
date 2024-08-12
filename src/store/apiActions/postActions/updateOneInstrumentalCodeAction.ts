@@ -12,10 +12,7 @@ export const updateOneInstrumentalCodeAction = createAsyncThunk(
   'sample/updateOneInstrumentalCode',
   (data: UpdateOneInstrumentalCodePayLoadType) => {
     return Fetcher.post<ResponseType>(
-      API_ENDPOINTS.instrumentalCodeUpdate.replace(
-        '#StockExchangeCode#',
-        data.stockExchangeCode
-      ),
+      API_ENDPOINTS.instrumentalCodeUpdate.replace('#StockExchangeCode#', data.stockExchangeCode),
       data
     );
   }

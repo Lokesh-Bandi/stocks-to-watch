@@ -1,19 +1,11 @@
-import axios, {
-  AxiosError,
-  AxiosRequestConfig,
-  AxiosResponse,
-  isAxiosError,
-} from 'axios';
+import axios, { AxiosError, AxiosRequestConfig, AxiosResponse, isAxiosError } from 'axios';
 
 import { consoleError } from '../Error/consoleError';
 import { ErrorTypes } from '../Error/types';
 
 class FetcherRoot {
   private static instance: FetcherRoot;
-  private cache: Record<
-    string,
-    { time: number; payload: AxiosResponse['data'] }
-  > = {};
+  private cache: Record<string, { time: number; payload: AxiosResponse['data'] }> = {};
   private SUCCESS_STATUS_CODE = 200;
   private SUCCESS_STATUS_CODE_POST = 200;
 
@@ -31,11 +23,7 @@ class FetcherRoot {
       return url.split('?')[0];
     }
   }
-  public get<P>(
-    url: string,
-    baseUrl?: string,
-    params?: Record<string, unknown>
-  ): Promise<P> {
+  public get<P>(url: string, baseUrl?: string, params?: Record<string, unknown>): Promise<P> {
     let originalUrl = url;
     if (baseUrl) {
       originalUrl = baseUrl + originalUrl;
@@ -53,9 +41,7 @@ class FetcherRoot {
           const statusText = response.statusText;
           const data = response.data;
           if (status !== this.SUCCESS_STATUS_CODE) {
-            throw new Error(
-              `⚠ Error ${status}: ${statusText} while fetching ${endPoint}`
-            );
+            throw new Error(`⚠ Error ${status}: ${statusText} while fetching ${endPoint}`);
           }
           return data;
         })
@@ -71,12 +57,7 @@ class FetcherRoot {
     };
     return this.cache[originalUrl].payload as Promise<P>;
   }
-  public post<P>(
-    url: string,
-    data: unknown,
-    baseUrl?: string,
-    config?: AxiosRequestConfig
-  ) {
+  public post<P>(url: string, data: unknown, baseUrl?: string, config?: AxiosRequestConfig) {
     let originalUrl = url;
     if (baseUrl) {
       originalUrl = baseUrl + originalUrl;
@@ -88,9 +69,7 @@ class FetcherRoot {
         const status = response.status;
         const statusText = response.statusText;
         if (status !== this.SUCCESS_STATUS_CODE_POST) {
-          throw new Error(
-            `⚠ Error ${status}: ${statusText} while posting ${endPoint}`
-          );
+          throw new Error(`⚠ Error ${status}: ${statusText} while posting ${endPoint}`);
         }
         return response.data;
       })

@@ -10,19 +10,14 @@ export interface KEY_STOCK_ITEM_TYPE {
   stockExchangeCode: string;
   value: number | Record<string, number | string | boolean>;
 }
-export interface RSI_ResponseType
-  extends Partial<Record<RSI_CATEGORIES_VALUES_TYPE, KEY_STOCK_ITEM_TYPE[]>> {}
+export interface RSI_ResponseType extends Partial<Record<RSI_CATEGORIES_VALUES_TYPE, KEY_STOCK_ITEM_TYPE[]>> {}
 
-export interface MFI_ResponseType
-  extends Partial<Record<MFI_CATEGORIES_VALUES_TYPE, KEY_STOCK_ITEM_TYPE[]>> {}
+export interface MFI_ResponseType extends Partial<Record<MFI_CATEGORIES_VALUES_TYPE, KEY_STOCK_ITEM_TYPE[]>> {}
 
 export interface BollingerBands_ResponseType
-  extends Partial<
-    Record<BOLLINGERBANDS_CATEGORIES_VALUES_TYPE, KEY_STOCK_ITEM_TYPE[]>
-  > {}
+  extends Partial<Record<BOLLINGERBANDS_CATEGORIES_VALUES_TYPE, KEY_STOCK_ITEM_TYPE[]>> {}
 
-export interface IntervalDataType<T>
-  extends Partial<Record<TIME_INTERVAL_VALUES_TYPE, T>> {}
+export interface IntervalDataType<T> extends Partial<Record<TIME_INTERVAL_VALUES_TYPE, T>> {}
 
 export interface CustomTechnicalIndicatorType
   extends Partial<

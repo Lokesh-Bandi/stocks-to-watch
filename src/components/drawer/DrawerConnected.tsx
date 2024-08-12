@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { DRAWER_ITEMS } from '../../constants/constants';
 import { useAppSelector } from '../../store/AppStore';
 import { useIsSmallerThanWide } from '../../styles/media';
 import { useModifiers } from '../hooks/useModifiers';
@@ -14,11 +15,12 @@ export const DrawerConnected = () => {
   const navigate = useNavigate();
   const isMenuOpen = useAppSelector(({ general }) => general.isMenuOpen);
   const isMobile = useIsSmallerThanWide();
-  const [activeInd, setActiveInd] = useState(0);
-  const drawerList = ['dashboard', 'rsi', 'mfi'];
-  const handleDrawerItemClick = (ind: number) => {
-    setActiveInd(ind);
-    navigate(ind === 0 ? '/' : `/${drawerList[ind]}`);
+  const drawerItems = Object.values(DRAWER_ITEMS);
+  const [activeItem, setActiveItem] = useState(drawerItems[0]);
+  const handleDrawerItemClick = (drawerItem: string) => {
+    if (activeItem === drawerItem) return;
+    setActiveItem(drawerItem);
+    navigate(drawerItems[0] === drawerItem ? '/' : `/${drawerItem}`);
   };
   const mods = useModifiers(
     styles,
@@ -34,13 +36,13 @@ export const DrawerConnected = () => {
     <div className={mods}>
       {!isMobile ? <AppLogo /> : null}
       <div className={styles.drawerListBlock}>
-        {drawerList.map((listName, ind) => {
+        {drawerItems.map((listName, ind) => {
           return (
             <DrawerItem
               key={ind}
-              active={ind === activeInd}
+              active={listName === activeItem}
               itemName={listName}
-              onClick={() => handleDrawerItemClick(ind)}
+              onClick={handleDrawerItemClick}
             />
           );
         })}

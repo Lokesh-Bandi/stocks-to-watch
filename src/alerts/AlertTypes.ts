@@ -10,8 +10,7 @@ export type ALERT_OBJ_TYPE = {
 };
 export const ALERTS: Record<ALERT_TYPES, ALERT_OBJ_TYPE> = {
   [ALERT_TYPES.HistoricalDataConfirmation_A]: {
-    title:
-      'Do you want to proceed for updating Historical data for all stocks?',
+    title: 'Do you want to proceed for updating Historical data for all stocks?',
     ok: true,
     close: true,
     closeIcon: true,
@@ -43,8 +42,7 @@ export const ALERTS: Record<ALERT_TYPES, ALERT_OBJ_TYPE> = {
     onOk: ALERT_ACTIONS[ALERT_TYPES.TodayDataConfirmation_S],
   },
   [ALERT_TYPES.InstrumentalCodeUpdate_S]: {
-    title:
-      'Do you want to proceed for updating Instrumental code for one stock?',
+    title: 'Do you want to proceed for updating Instrumental code for one stock?',
     ok: true,
     close: true,
     closeIcon: true,
@@ -68,8 +66,7 @@ export const ALERTS: Record<ALERT_TYPES, ALERT_OBJ_TYPE> = {
     onOk: ALERT_ACTIONS[ALERT_TYPES.LastNDaysFromTodayDataConfirmation_S],
   },
   [ALERT_TYPES.TechIndAndKeyStocks]: {
-    title:
-      'Do you want to proceed for updating technical indicators and key stocks?',
+    title: 'Do you want to proceed for updating technical indicators and key stocks?',
     ok: true,
     close: true,
     closeIcon: true,

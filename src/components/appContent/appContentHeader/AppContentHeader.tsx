@@ -9,9 +9,7 @@ export const AppContentHeader = ({}: AppContentHeaderProps) => {
     <div className={styles.appHeader}>
       <div className={styles.greetingsBlock}>
         <div className={styles.greetingTitle}>{'Hello investor...'}</div>
-        <div className={styles.greetingMsg}>
-          {`Let's try something new today....`}
-        </div>
+        <div className={styles.greetingMsg}>{`Let's try something new today....`}</div>
       </div>
       <div className={styles.searchBlock}>
         <div className={styles.searchInput}>

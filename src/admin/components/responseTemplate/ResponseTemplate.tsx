@@ -6,12 +6,7 @@ interface ResponseTemplateProps {
   hasError: boolean;
   ack?: unknown;
 }
-export const ResponseTemplate = ({
-  title,
-  status,
-  hasError = false,
-  ack = '',
-}: ResponseTemplateProps) => {
+export const ResponseTemplate = ({ title, status, hasError = false, ack = '' }: ResponseTemplateProps) => {
   return (
     <div className={styles.container}>
       <div className={styles.title}>{title}</div>

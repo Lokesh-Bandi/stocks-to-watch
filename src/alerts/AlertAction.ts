@@ -27,9 +27,7 @@ export const ALERT_ACTIONS = {
     const {
       admin: { stockExchangeCodeToSearch },
     } = AppStore.getState();
-    AppStore.dispatch(
-      updateHistoricalStockDataForOneAction(stockExchangeCodeToSearch)
-    );
+    AppStore.dispatch(updateHistoricalStockDataForOneAction(stockExchangeCodeToSearch));
   },
   [ALERT_TYPES.TodayDataConfirmation_A]: () => {
     AppStore.dispatch(fetchAllStocksDataForTodayAction());
@@ -38,9 +36,7 @@ export const ALERT_ACTIONS = {
     const {
       admin: { stockExchangeCodeToSearch },
     } = AppStore.getState();
-    AppStore.dispatch(
-      fetchOneStocksDataForTodayAction(stockExchangeCodeToSearch)
-    );
+    AppStore.dispatch(fetchOneStocksDataForTodayAction(stockExchangeCodeToSearch));
   },
   [ALERT_TYPES.InstrumentalCodeUpdate_S]: () => {
     const {

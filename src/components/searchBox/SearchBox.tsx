@@ -10,9 +10,7 @@ export const SearchBox = ({
   onClick: (a: string) => void;
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [filteredRecommendations, setFilteredRecommendations] = useState<
-    unknown[] | []
-  >([]);
+  const [filteredRecommendations, setFilteredRecommendations] = useState<unknown[] | []>([]);
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target?.value;
@@ -20,9 +18,7 @@ export const SearchBox = ({
 
     // Filter recommendations based on the search term
     if (value) {
-      const filtered = recommondationList.filter((item) =>
-        String(item).toLowerCase().includes(value.toLowerCase())
-      );
+      const filtered = recommondationList.filter((item) => String(item).toLowerCase().includes(value.toLowerCase()));
       setFilteredRecommendations(filtered);
     } else {
       setFilteredRecommendations([]);
@@ -47,11 +43,7 @@ export const SearchBox = ({
       {filteredRecommendations.length > 0 && (
         <ul className={styles.listSection}>
           {filteredRecommendations.map((item, index) => (
-            <li
-              className={styles.listItem}
-              key={index}
-              onClick={() => handleRecommendationClick(item as string)}
-            >
+            <li className={styles.listItem} key={index} onClick={() => handleRecommendationClick(item as string)}>
               {item as string}
             </li>
           ))}

@@ -7,7 +7,5 @@ interface DashBoardProps {
 }
 export const DashBoard = ({ isLoading }: DashBoardProps) => {
   if (isLoading) return <Spinner />;
-  return (
-    <div className={styles.dashboardContainer}>{'Coming soon.......'}</div>
-  );
+  return <div className={styles.dashboardContainer}>{'Coming soon.......'}</div>;
 };

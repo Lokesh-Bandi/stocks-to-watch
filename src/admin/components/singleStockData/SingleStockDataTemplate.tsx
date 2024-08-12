@@ -15,10 +15,7 @@ interface SingleStockDataTemplateProps {
   alertType: ALERT_TYPES;
   daysField?: boolean;
 }
-export const SingleStockDataTemplate = ({
-  alertType,
-  daysField = false,
-}: SingleStockDataTemplateProps) => {
+export const SingleStockDataTemplate = ({ alertType, daysField = false }: SingleStockDataTemplateProps) => {
   const dispatch = useAppDispatch();
   const isLoading = useAdminSlice.isLoading();
   const [days, setDays] = useState<number>(0);
@@ -59,9 +56,7 @@ export const SingleStockDataTemplate = ({
           <h2>{singleStockData?.stockExchangeCode}</h2>
           <div>
             <h3>{`API: ${singleStockData?.api.status}`}</h3>
-            {singleStockData?.api.status === API_STATUS.error && (
-              <div>{JSON.stringify(singleStockData.api.ack)}</div>
-            )}
+            {singleStockData?.api.status === API_STATUS.error && <div>{JSON.stringify(singleStockData.api.ack)}</div>}
           </div>
           <div>
             <h3>{`DB: ${singleStockData?.db.status}`}</h3>

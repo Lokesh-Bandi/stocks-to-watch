@@ -8,10 +8,7 @@ export const updateHistoricalStockDataForOneAction = createAsyncThunk(
   'admin/updateHistoricalStockDataForOne',
   (stockExchangeCode: string) => {
     return Fetcher.post<AdminType['oneStockDataForToday']>(
-      API_ENDPOINTS.historicalDataForOneStock.replace(
-        '#StockExchangeCode#',
-        stockExchangeCode
-      ),
+      API_ENDPOINTS.historicalDataForOneStock.replace('#StockExchangeCode#', stockExchangeCode),
       {}
     );
   }

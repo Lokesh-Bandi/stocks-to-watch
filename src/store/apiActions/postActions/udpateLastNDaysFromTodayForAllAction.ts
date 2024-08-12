@@ -10,9 +10,6 @@ interface UpdateOneInstrumentalCodePayLoadType {
 export const udpateLastNDaysFromTodayForAllAction = createAsyncThunk(
   'sample/udpateLastNDaysFromTodayForAll',
   (data: UpdateOneInstrumentalCodePayLoadType) => {
-    return Fetcher.post<AdminType['actionResult']>(
-      API_ENDPOINTS.lastNDaysFromTodayAll,
-      data
-    );
+    return Fetcher.post<AdminType['actionResult']>(API_ENDPOINTS.lastNDaysFromTodayAll, data);
   }
 );

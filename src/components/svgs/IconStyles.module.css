@@ -8,3 +8,32 @@
   border-radius: 100%;
   background-color: #000000;
 }
+
+.title {
+  width: 100%;
+  fill: #000000;
+  font-size: 50px;
+}
+.category {
+  font-size: 40px;
+  fill: red;
+}
+.tiValueHeader {
+  font-size: 32px;
+  fill: #0E1128;
+}
+.stockName {
+  font-size: 32px;
+  fill: #413535; 
+  font-weight: 600;
+}
+.tiValue {
+  font-size: 34px;
+  fill: #17181D; 
+  font-weight: 600;
+}
+.tagLine {
+  fill: #727481;
+  font-size: 26px;
+  font-weight: 500;
+}

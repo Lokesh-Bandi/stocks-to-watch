@@ -17,12 +17,9 @@ export const coreDataSlice = createSlice({
       state.stocks = action.payload;
       state.isLoading = false;
     });
-    builder.addMatcher(
-      isAsyncThunkAction(fetchCoreDataAction),
-      (state, action) => {
-        state.isLoading = action.meta.requestStatus === 'pending';
-      }
-    );
+    builder.addMatcher(isAsyncThunkAction(fetchCoreDataAction), (state, action) => {
+      state.isLoading = action.meta.requestStatus === 'pending';
+    });
   },
 });
 

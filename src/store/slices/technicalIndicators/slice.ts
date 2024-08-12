@@ -26,12 +26,9 @@ export const technicalIndicatorsSlice = createSlice({
       state.lastUpdated = lastUpdated;
       state.isLoading = false;
     });
-    builder.addMatcher(
-      isAsyncThunkAction(fetchKeyStocksAction),
-      (state, action) => {
-        state.isLoading = action.meta.requestStatus === 'pending';
-      }
-    );
+    builder.addMatcher(isAsyncThunkAction(fetchKeyStocksAction), (state, action) => {
+      state.isLoading = action.meta.requestStatus === 'pending';
+    });
   },
 });
 

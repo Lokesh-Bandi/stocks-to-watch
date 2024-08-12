@@ -10,9 +10,7 @@ export const AppContentBody = ({}: AppContentBodyProps) => {
     <div className={styles.appContentBody}>
       <div className={styles.brandingSection}>
         {sampleBrandingArray.map(({ count, title }, ind) => {
-          return (
-            <BrandingCard key={ind} index={ind} count={count} title={title} />
-          );
+          return <BrandingCard key={ind} index={ind} count={count} title={title} />;
         })}
       </div>
       <div className={styles.summaryTableSection}>
