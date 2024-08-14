@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 
 import { AppGridConnected } from '../components/appGrid/AppGridConnected';
 import { DashBoardConnected } from '../components/dashboard/DashBoardConnected';
@@ -18,6 +18,8 @@ export const AppRouter = () => {
           <Route path={`/${DRAWER_ITEMS.rsi}`} element={<RSIConnected />} />
           <Route path={`/${DRAWER_ITEMS.mfi}`} element={<MFIConnected />} />
           <Route path={`/${DRAWER_ITEMS.bollingerBands}`} element={<BollingerBandsConnected />} />
+          {/* Catch-all route to redirect to the root page */}
+          <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>
     </BrowserRouter>
