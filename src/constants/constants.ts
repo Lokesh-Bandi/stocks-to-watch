@@ -36,7 +36,7 @@ export const DB_STATUS = {
 
 // export const SERVER_URL = 'http://localhost:3000';
 // export const SERVER_URL = 'http://192.168.36.219:3000';
-export const SERVER_URL = 'http://api.stocks2watch.live:3000'; //Amazon EC2 instance IP
+export const SERVER_URL = 'https://api.stocks2watch.live'; //Amazon EC2 instance IP
 
 export const API_ENDPOINTS = {
   allStocksDataForToday: `${SERVER_URL}/today/all/nifty500`,
