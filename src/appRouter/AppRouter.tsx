@@ -15,9 +15,15 @@ export const AppRouter = () => {
       <Routes>
         <Route path="/" element={<AppGridConnected />}>
           <Route index element={<DashBoardConnected />} />
-          <Route path={`/${DRAWER_ITEMS.rsi}`} element={<RSIConnected />} />
-          <Route path={`/${DRAWER_ITEMS.mfi}`} element={<MFIConnected />} />
-          <Route path={`/${DRAWER_ITEMS.bollingerBands}`} element={<BollingerBandsConnected />} />
+          <Route path={`/${DRAWER_ITEMS.rsi}`} element={<RSIConnected />}>
+            <Route path="*" element={<Navigate to={`/`} />} />
+          </Route>
+          <Route path={`/${DRAWER_ITEMS.mfi}`} element={<MFIConnected />}>
+            <Route path="*" element={<Navigate to={`/${DRAWER_ITEMS.mfi}`} />} />
+          </Route>
+          <Route path={`/${DRAWER_ITEMS.bollingerBands}`} element={<BollingerBandsConnected />}>
+            <Route path="*" element={<Navigate to={`/${DRAWER_ITEMS.bollingerBands}`} />} />
+          </Route>
           {/* Catch-all route to redirect to the root page */}
           <Route path="*" element={<Navigate to="/" />} />
         </Route>
