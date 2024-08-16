@@ -1,18 +1,21 @@
 import { ChangeEvent, useState } from 'react';
 
-import { STOCK_MARKET_MOVEMENT } from '../../constants/constants';
 import { NIFTY_500 } from '../../constants/stocks_constants';
+import { CoreDataType } from '../../store/slices/coreData';
+import { TechIndType } from '../../store/slices/technicalIndicators';
 import { DashBoardCard } from '../dashboardCard/DashBoardCard';
 import { Spinner } from '../spinner/Spinner';
 
 import styles from './Dashboard.module.css';
 
 interface DashBoardProps {
+  momentumStocks: TechIndType['momentumStocks'];
+  coreData: CoreDataType['stocks'];
   isLoading: boolean;
 }
-export const DashBoard = ({ isLoading }: DashBoardProps) => {
+export const DashBoard = ({ momentumStocks, coreData, isLoading }: DashBoardProps) => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [filteredRecommendations, setFilteredRecommendations] = useState(NIFTY_500);
+  const [filteredRecommendations, setFilteredRecommendations] = useState(NIFTY_500.sort());
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target?.value;
@@ -21,11 +24,11 @@ export const DashBoard = ({ isLoading }: DashBoardProps) => {
       const filtered = NIFTY_500.filter((item) => String(item).toLowerCase().includes(value.toLowerCase()));
       setFilteredRecommendations(filtered);
     } else {
-      setFilteredRecommendations(NIFTY_500);
+      setFilteredRecommendations(NIFTY_500.sort());
     }
   };
 
-  if (isLoading) return <Spinner />;
+  if (isLoading || !momentumStocks || !coreData) return <Spinner />;
   return (
     <div className={styles.dashboardContainer}>
       <input
@@ -40,8 +43,9 @@ export const DashBoard = ({ isLoading }: DashBoardProps) => {
           <DashBoardCard
             key={ind}
             stockExchangeCode={eachStock}
-            companyName="Yes Bank pvt. Limited"
-            stocksMovement={STOCK_MARKET_MOVEMENT.bearish}
+            companyName={coreData[eachStock].companyName}
+            lastTradedPrice={coreData[eachStock].lastTradedPrice}
+            stocksMovement={momentumStocks[eachStock]}
           />
         );
       })}

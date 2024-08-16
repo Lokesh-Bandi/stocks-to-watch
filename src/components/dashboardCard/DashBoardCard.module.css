@@ -5,6 +5,7 @@
   height: 100%;
   padding: 16px;
   font-family: 'Exo';
+  font-size: 14px;
   border-radius: 10px;
   background: rgb(217,215,215); 
   background: linear-gradient(290deg, rgba(217,215,215,1) 7%, rgba(255,255,255,1) 100%);
@@ -33,4 +34,16 @@
 .title {
   font-size: 18px;
   font-weight: 600;
+}
+
+.stockMovementText {
+  font-size: 16px;
+  font-weight: 600;
+  color: #3B3B3B;
+}
+.stockMovementText_bullish {
+  color: #4bd15a;
+}
+.stockMovementText_bearish {
+  color: #d33d3d;
 }

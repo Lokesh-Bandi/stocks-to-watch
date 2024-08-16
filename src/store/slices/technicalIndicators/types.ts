@@ -2,6 +2,7 @@ import {
   BOLLINGERBANDS_CATEGORIES_VALUES_TYPE,
   MFI_CATEGORIES_VALUES_TYPE,
   RSI_CATEGORIES_VALUES_TYPE,
+  STOCK_MARKET_MOVEMENT_VALUES_TYPE,
   TECHNICAL_INDICATORS_VALUES_TYPE,
   TIME_INTERVAL_VALUES_TYPE,
 } from '../../../constants/constants';
@@ -33,4 +34,5 @@ export interface TechIndType {
   technicalIndicators: CustomTechnicalIndicatorType;
   lastUpdated: string;
   isLoading: boolean;
+  momentumStocks: Record<string, STOCK_MARKET_MOVEMENT_VALUES_TYPE> | null;
 }

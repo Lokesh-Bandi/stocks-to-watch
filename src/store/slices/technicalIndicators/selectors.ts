@@ -1,6 +1,12 @@
 import { useAppSelector } from '../../AppStore';
 
-import { BollingerBands_ResponseType, IntervalDataType, MFI_ResponseType, RSI_ResponseType } from './types';
+import {
+  BollingerBands_ResponseType,
+  IntervalDataType,
+  MFI_ResponseType,
+  RSI_ResponseType,
+  TechIndType,
+} from './types';
 
 export const useTechnicalIndicatorsSlice = {
   isLoading: (): boolean => {
@@ -24,5 +30,8 @@ export const useTechnicalIndicatorsSlice = {
         (technicalIndicators.technicalIndicators.bollingerbands as IntervalDataType<BollingerBands_ResponseType>) ??
         null
     );
+  },
+  getMomentumStocks: (): TechIndType['momentumStocks'] => {
+    return useAppSelector(({ technicalIndicators }) => technicalIndicators.momentumStocks);
   },
 };

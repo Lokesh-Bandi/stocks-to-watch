@@ -1,6 +1,7 @@
 import { createSlice, isAsyncThunkAction } from '@reduxjs/toolkit';
 
 import { fetchKeyStocksAction } from '../../apiActions/getActions/fetchKeyStocksAction';
+import { fetchMomentumStocksAction } from '../../apiActions/getActions/fetchMomentumStocksAction';
 
 import { TechIndType } from './types';
 
@@ -10,6 +11,7 @@ const initialState: TechIndType = {
     mfi: null,
     bollingerbands: null,
   },
+  momentumStocks: null,
   lastUpdated: '',
   isLoading: false,
 };
@@ -26,7 +28,11 @@ export const technicalIndicatorsSlice = createSlice({
       state.lastUpdated = lastUpdated;
       state.isLoading = false;
     });
-    builder.addMatcher(isAsyncThunkAction(fetchKeyStocksAction), (state, action) => {
+    builder.addCase(fetchMomentumStocksAction.fulfilled, (state, action) => {
+      state.momentumStocks = action.payload;
+      state.isLoading = false;
+    });
+    builder.addMatcher(isAsyncThunkAction(fetchKeyStocksAction, fetchMomentumStocksAction), (state, action) => {
       state.isLoading = action.meta.requestStatus === 'pending';
     });
   },

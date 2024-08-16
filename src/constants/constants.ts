@@ -34,9 +34,9 @@ export const DB_STATUS = {
   error: 'error',
 };
 
-// export const SERVER_URL = 'http://localhost:3000';
+export const SERVER_URL = 'http://localhost:3000';
 // export const SERVER_URL = 'http://192.168.36.219:3000';
-export const SERVER_URL = 'https://api.stocks2watch.live'; //Amazon EC2 instance IP
+// export const SERVER_URL = 'https://api.stocks2watch.live'; //Amazon EC2 instance IP
 
 export const API_ENDPOINTS = {
   allStocksDataForToday: `${SERVER_URL}/today/all/nifty500`,
@@ -58,6 +58,7 @@ export const API_ENDPOINTS = {
 export const UI_API_ENDPOINTS = {
   keyStocksAPI: `${SERVER_URL}/ui/key-stocks`,
   coreData: `${SERVER_URL}/ui/core-data`,
+  momentumStocks: `${SERVER_URL}/ui/momentum-stocks`,
 };
 
 export type ValueOf<T> = T[keyof T];
