@@ -121,3 +121,11 @@ export const DRAWER_ITEMS = {
   mfi: 'MFI',
   bollingerBands: 'Bollinger Bands',
 };
+
+export const STOCK_MARKET_MOVEMENT = {
+  bearish: 'Bearish',
+  bullish: 'Bullish',
+  neutral: 'Neutral',
+};
+
+export type STOCK_MARKET_MOVEMENT_VALUES_TYPE = ValueOf<typeof STOCK_MARKET_MOVEMENT>;
