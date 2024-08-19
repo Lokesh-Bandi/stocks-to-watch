@@ -45,6 +45,7 @@
   }
   .intervalSectionItem {
     padding: 6px 8px;
+    gap: 6px;
     font-size: 14px;
     border-radius: 12px;
   }

@@ -4,6 +4,7 @@ import { RSI_CATEGORIES, TIME_INTERVAL, TIME_INTERVAL_VALUES_TYPE } from '../../
 import { RSI_DISPLAY_TITLES, RSI_TABLE } from '../../constants/titles';
 import { useCoreData } from '../../store/slices/coreData';
 import { RSI_ResponseType, useTechnicalIndicatorsSlice } from '../../store/slices/technicalIndicators';
+import { useIsSmallerThanWide } from '../../styles/media';
 import { BrandingCard } from '../brandingCard/BrandingCard';
 import { IntervalTabs } from '../intervalTabs/IntervalTabs';
 import { OutcomeSummaryTable } from '../outcomeSummaryTable/OutcomeSummaryTable';
@@ -13,6 +14,7 @@ import { getIcon } from './utils';
 import styles from './common.module.css';
 
 export const RSIConnected = () => {
+  const isMobile = useIsSmallerThanWide();
   const [activeIntervalTab, setACtiveIntervalTab] = useState<TIME_INTERVAL_VALUES_TYPE>(TIME_INTERVAL.One_Day);
   const rsiKeysStocks = useTechnicalIndicatorsSlice.getRsiKeyStocks();
   const coreData = useCoreData.getCoreData();
@@ -56,7 +58,7 @@ export const RSIConnected = () => {
           const categoryKey = RSI_CATEGORIES[rsiKey as keyof typeof RSI_CATEGORIES];
           const count = currentIntervalData?.[categoryKey]?.length ?? 0;
           const title = RSI_DISPLAY_TITLES[rsiKey as keyof typeof RSI_DISPLAY_TITLES];
-          const icon = getIcon(ind);
+          const icon = getIcon(ind, isMobile);
           return <BrandingCard key={rsiKey} icon={icon} index={ind} count={count} title={title} />;
         })}
       </div>

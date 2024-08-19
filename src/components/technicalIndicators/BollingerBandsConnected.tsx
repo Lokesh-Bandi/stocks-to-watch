@@ -4,6 +4,7 @@ import { BOLLINGERBANDS_CATEGORIES, TIME_INTERVAL, TIME_INTERVAL_VALUES_TYPE } f
 import { BollingerBands_DISPLAY_TITLES, BollingerBands_TABLE } from '../../constants/titles';
 import { useCoreData } from '../../store/slices/coreData';
 import { BollingerBands_ResponseType, useTechnicalIndicatorsSlice } from '../../store/slices/technicalIndicators';
+import { useIsSmallerThanWide } from '../../styles/media';
 import { BrandingCard } from '../brandingCard/BrandingCard';
 import { IntervalTabs } from '../intervalTabs/IntervalTabs';
 import { OutcomeSummaryTable } from '../outcomeSummaryTable/OutcomeSummaryTable';
@@ -13,6 +14,7 @@ import { getIcon } from './utils';
 import styles from './common.module.css';
 
 export const BollingerBandsConnected = () => {
+  const isMobile = useIsSmallerThanWide();
   const [activeIntervalTab, setACtiveIntervalTab] = useState<TIME_INTERVAL_VALUES_TYPE>(TIME_INTERVAL.One_Day);
   const bbKeyStocks = useTechnicalIndicatorsSlice.getBollingerBandsKeyStocks();
   const coreData = useCoreData.getCoreData();
@@ -57,7 +59,7 @@ export const BollingerBandsConnected = () => {
           const categoryKey = BOLLINGERBANDS_CATEGORIES[bBandsKey as keyof typeof BOLLINGERBANDS_CATEGORIES];
           const count = currentIntervalData?.[categoryKey]?.length ?? 0;
           const title = BollingerBands_DISPLAY_TITLES[bBandsKey as keyof typeof BollingerBands_DISPLAY_TITLES];
-          const icon = getIcon(ind);
+          const icon = getIcon(ind, isMobile);
           return <BrandingCard key={bBandsKey} icon={icon} index={ind} count={count} title={title} />;
         })}
       </div>

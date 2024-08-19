@@ -1,7 +1,7 @@
-import { BsGraphDownArrow, BsGraphUpArrow, BsGraphUp, BsGraphDown } from 'react-icons/bs';
+import { BsGraphDown, BsGraphDownArrow, BsGraphUp, BsGraphUpArrow } from 'react-icons/bs';
 
-export const getIcon = (ind: number) => {
-  const size = 26;
+export const getIcon = (ind: number, isMobile = false) => {
+  const size = isMobile ? 16 : 26;
   switch (ind) {
     case 0:
       return <BsGraphUpArrow color="#55db43" size={size} />;

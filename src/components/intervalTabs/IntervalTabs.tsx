@@ -1,6 +1,7 @@
 import { WiTime2, WiTime4, WiTime8 } from 'react-icons/wi';
 
 import { TECH_INDICATOR_TIME_INTERVALS, TIME_INTERVAL, TIME_INTERVAL_VALUES_TYPE } from '../../constants/constants';
+import { useIsSmallerThanWide } from '../../styles/media';
 import { useModifiers } from '../hooks/useModifiers';
 
 import styles from './IntervalTabs.module.css';
@@ -32,11 +33,12 @@ interface IntervalTabITemProps {
   onTabClick: (tabName: TIME_INTERVAL_VALUES_TYPE) => void;
 }
 export const IntervalTabITem = ({ active, name, onTabClick }: IntervalTabITemProps) => {
+  const isMobile = useIsSmallerThanWide();
   const mods = useModifiers(styles, 'intervalSectionItem', {
     active: active,
   });
   const getIcon = () => {
-    const size = 26;
+    const size = isMobile ? 18 : 26;
     switch (name) {
       case TIME_INTERVAL.Fifteen_Minute:
         return <WiTime2 size={size} />;

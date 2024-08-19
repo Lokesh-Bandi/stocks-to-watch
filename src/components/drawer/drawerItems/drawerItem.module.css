@@ -28,6 +28,7 @@
 @media (max-width: 1024px) {
   .drawer-item {
     width: 100%;
+    font-size: 16px;
   }
 }
 .drawer-item_active {
@@ -60,7 +61,11 @@
     width: unset;
     height: 30px;
     flex-grow: 1;
+    gap: 6px;
     justify-content: flex-start;
+  }
+  .appLogoText {
+    font-size: 16px;
   }
 }
 .noUnderline {
