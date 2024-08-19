@@ -1,11 +1,15 @@
+import { RiStockFill } from 'react-icons/ri';
+
 import styles from './drawerItem.module.css';
 
 export const AppLogo = () => {
-  const logoURL = '';
-  const appName = 'Stocks To Watch';
+  const appName = 'Stocks 2 Watch';
   return (
     <div className={styles.appLogoSection}>
-      {logoURL ? <img src={logoURL} alt="logo" /> : ''}
+      <div>
+        <RiStockFill color="#55db43" size={24} />
+        <RiStockFill color="#d65555" size={24} />
+      </div>
       <div className={styles.appLogoText}>{appName}</div>
     </div>
   );

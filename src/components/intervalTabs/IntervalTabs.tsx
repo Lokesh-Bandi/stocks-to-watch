@@ -1,4 +1,6 @@
-import { TECH_INDICATOR_TIME_INTERVALS, TIME_INTERVAL_VALUES_TYPE } from '../../constants/constants';
+import { WiTime2, WiTime4, WiTime8 } from 'react-icons/wi';
+
+import { TECH_INDICATOR_TIME_INTERVALS, TIME_INTERVAL, TIME_INTERVAL_VALUES_TYPE } from '../../constants/constants';
 import { useModifiers } from '../hooks/useModifiers';
 
 import styles from './IntervalTabs.module.css';
@@ -33,6 +35,19 @@ export const IntervalTabITem = ({ active, name, onTabClick }: IntervalTabITemPro
   const mods = useModifiers(styles, 'intervalSectionItem', {
     active: active,
   });
+  const getIcon = () => {
+    const size = 26;
+    switch (name) {
+      case TIME_INTERVAL.Fifteen_Minute:
+        return <WiTime2 size={size} />;
+      case TIME_INTERVAL.Four_Hour:
+        return <WiTime4 size={size} />;
+      case TIME_INTERVAL.One_Day:
+        return <WiTime8 size={size} />;
+      default:
+        return null;
+    }
+  };
   return (
     <div
       className={`${styles.intervalSectionItem} ${mods}`}
@@ -40,6 +55,7 @@ export const IntervalTabITem = ({ active, name, onTabClick }: IntervalTabITemPro
         onTabClick(name as TIME_INTERVAL_VALUES_TYPE);
       }}
     >
+      {getIcon()}
       {name}
     </div>
   );

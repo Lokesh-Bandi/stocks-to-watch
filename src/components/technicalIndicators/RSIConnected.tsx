@@ -8,6 +8,8 @@ import { BrandingCard } from '../brandingCard/BrandingCard';
 import { IntervalTabs } from '../intervalTabs/IntervalTabs';
 import { OutcomeSummaryTable } from '../outcomeSummaryTable/OutcomeSummaryTable';
 
+import { getIcon } from './utils';
+
 import styles from './common.module.css';
 
 export const RSIConnected = () => {
@@ -54,7 +56,8 @@ export const RSIConnected = () => {
           const categoryKey = RSI_CATEGORIES[rsiKey as keyof typeof RSI_CATEGORIES];
           const count = currentIntervalData?.[categoryKey]?.length ?? 0;
           const title = RSI_DISPLAY_TITLES[rsiKey as keyof typeof RSI_DISPLAY_TITLES];
-          return <BrandingCard key={rsiKey} index={ind} count={count} title={title} />;
+          const icon = getIcon(ind);
+          return <BrandingCard key={rsiKey} icon={icon} index={ind} count={count} title={title} />;
         })}
       </div>
       <div className={styles.summaryTableSection}>

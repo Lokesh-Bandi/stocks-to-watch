@@ -6,7 +6,8 @@
   box-sizing: border-box;
 }
 .intervalSectionItem {
-  width: 120px;
+  display: flex;
+  width: 160px;
   height: 100%;
   padding: 8px 16px;
   font-size: 18px;
@@ -17,6 +18,8 @@
   border: 2px solid var(--drawer-item-active);
   border-radius: 20px;
   background-color:var(--drawer-bg);
+  align-items: center;
+  gap: 14px;
   box-sizing: border-box;
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;

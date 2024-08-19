@@ -1,6 +1,5 @@
 import { CSSProperties, ReactNode } from 'react';
-
-import infoIcon from '../../../assets/icons/info.svg';
+import { TbInfoSquareRounded } from 'react-icons/tb';
 
 import styles from './OutcomeSummaryTable.module.css';
 
@@ -63,7 +62,7 @@ export const OutcomeSummaryTable = ({
                     data-tooltip-content={eachStockData.at(-1) as string}
                     data-tooltip-variant="info"
                   >
-                    <img src={infoIcon} alt="info" />
+                    <TbInfoSquareRounded color="#69d0e5" size={20} />
                   </div>
                 </div>
               </div>

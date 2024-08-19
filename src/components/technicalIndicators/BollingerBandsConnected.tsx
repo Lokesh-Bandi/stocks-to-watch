@@ -8,6 +8,8 @@ import { BrandingCard } from '../brandingCard/BrandingCard';
 import { IntervalTabs } from '../intervalTabs/IntervalTabs';
 import { OutcomeSummaryTable } from '../outcomeSummaryTable/OutcomeSummaryTable';
 
+import { getIcon } from './utils';
+
 import styles from './common.module.css';
 
 export const BollingerBandsConnected = () => {
@@ -55,7 +57,8 @@ export const BollingerBandsConnected = () => {
           const categoryKey = BOLLINGERBANDS_CATEGORIES[bBandsKey as keyof typeof BOLLINGERBANDS_CATEGORIES];
           const count = currentIntervalData?.[categoryKey]?.length ?? 0;
           const title = BollingerBands_DISPLAY_TITLES[bBandsKey as keyof typeof BollingerBands_DISPLAY_TITLES];
-          return <BrandingCard key={bBandsKey} index={ind} count={count} title={title} />;
+          const icon = getIcon(ind);
+          return <BrandingCard key={bBandsKey} icon={icon} index={ind} count={count} title={title} />;
         })}
       </div>
       <div className={styles.summaryTableSection}>

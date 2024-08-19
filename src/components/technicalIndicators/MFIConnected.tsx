@@ -8,6 +8,8 @@ import { BrandingCard } from '../brandingCard/BrandingCard';
 import { IntervalTabs } from '../intervalTabs/IntervalTabs';
 import { OutcomeSummaryTable } from '../outcomeSummaryTable/OutcomeSummaryTable';
 
+import { getIcon } from './utils';
+
 import styles from './common.module.css';
 
 export const MFIConnected = () => {
@@ -53,7 +55,8 @@ export const MFIConnected = () => {
           const categoryKey = MFI_CATEGORIES[mfiKey as keyof typeof MFI_CATEGORIES];
           const count = currentIntervalData?.[categoryKey]?.length ?? 0;
           const title = MFI_DISPLAY_TITLES[mfiKey as keyof typeof MFI_DISPLAY_TITLES];
-          return <BrandingCard key={mfiKey} index={ind} count={count} title={title} />;
+          const icon = getIcon(ind);
+          return <BrandingCard key={mfiKey} icon={icon} index={ind} count={count} title={title} />;
         })}
       </div>
       <div className={styles.summaryTableSection}>

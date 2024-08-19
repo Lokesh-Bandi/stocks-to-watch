@@ -1,4 +1,5 @@
 .brandingCard {
+  position: relative;
   display: flex;
   height: 100%;
   padding: 16px;
@@ -12,6 +13,12 @@
   transition: all 200ms ease-in-out;
   transform-origin: center;
   box-shadow: rgba(50, 50, 93, 0.25) 0 13px 27px -5px, rgba(0, 0, 0, 0.3) 0 8px 16px -8px;
+}
+
+.brandingCardIcon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
 }
 
 @media (hover: hover){ 

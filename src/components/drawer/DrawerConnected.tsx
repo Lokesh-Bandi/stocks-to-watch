@@ -1,4 +1,8 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
+import { AiOutlineBarChart } from 'react-icons/ai';
+import { MdSsidChart } from 'react-icons/md';
+import { PiChartLineLight } from 'react-icons/pi';
+import { RxDashboard } from 'react-icons/rx';
 import { useNavigate } from 'react-router-dom';
 
 import { DRAWER_ITEMS } from '../../constants/constants';
@@ -22,6 +26,21 @@ export const DrawerConnected = () => {
     setActiveItem(drawerItem);
     navigate(drawerItems[0] === drawerItem ? '/' : `/${drawerItem}`);
   };
+  const getIcon = useCallback((drawerItem: string) => {
+    switch (drawerItem) {
+      case DRAWER_ITEMS.dashboard:
+        return <RxDashboard />;
+      case DRAWER_ITEMS.mfi:
+        return <PiChartLineLight />;
+      case DRAWER_ITEMS.rsi:
+        return <AiOutlineBarChart />;
+      case DRAWER_ITEMS.bollingerBands:
+        return <MdSsidChart />;
+      default:
+        return null;
+    }
+  }, []);
+
   const mods = useModifiers(
     styles,
     'drawer',
@@ -40,6 +59,7 @@ export const DrawerConnected = () => {
           return (
             <DrawerItem
               key={ind}
+              icon={getIcon(listName)}
               active={listName === activeItem}
               itemName={listName}
               onClick={handleDrawerItemClick}
