@@ -1,4 +1,4 @@
-import { BOLLINGERBANDS_CATEGORIES, MFI_CATEGORIES, RSI_CATEGORIES } from './constants';
+import { BOLLINGERBANDS_CATEGORIES, MFI_CATEGORIES, RSI_CATEGORIES, VOLUME_SPIKE_CATEGORIES } from './constants';
 
 export const RSI_DISPLAY_TITLES = {
   [RSI_CATEGORIES.lessthan30]: 'RSI < 30%',
@@ -33,5 +33,16 @@ export const BollingerBands_DISPLAY_TITLES = {
 
 export const BollingerBands_TABLE = {
   headers: ['No.', 'Stock Exch. Code', 'LTP', '%B', 'Info'],
+  colWidths: ['10%', '40%', '20%', '20%', '10%'],
+};
+
+export const VolumeSpike_DISPLAY_TITLES = {
+  [VOLUME_SPIKE_CATEGORIES.upTrend]: 'Volume Increased and Price Increased',
+  [VOLUME_SPIKE_CATEGORIES.downTrend]: 'Volume Increased and Price Decreased',
+  [VOLUME_SPIKE_CATEGORIES.neutral]: 'Neutral Movement in Both',
+};
+
+export const VolumeSpike_TABLE = {
+  headers: ['No.', 'Stock Exch. Code', 'LTP', 'VolumeChangedBy', 'Info'],
   colWidths: ['10%', '40%', '20%', '20%', '10%'],
 };

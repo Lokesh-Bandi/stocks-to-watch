@@ -6,6 +6,7 @@ import {
   MFI_ResponseType,
   RSI_ResponseType,
   TechIndType,
+  VolumeSpike_ResponseType,
 } from './types';
 
 export const useTechnicalIndicatorsSlice = {
@@ -29,6 +30,12 @@ export const useTechnicalIndicatorsSlice = {
       ({ technicalIndicators }) =>
         (technicalIndicators.technicalIndicators.bollingerbands as IntervalDataType<BollingerBands_ResponseType>) ??
         null
+    );
+  },
+  getVolumeSpikeKeyStocks: (): IntervalDataType<VolumeSpike_ResponseType> | null => {
+    return useAppSelector(
+      ({ technicalIndicators }) =>
+        (technicalIndicators.technicalIndicators.volumeSpike as IntervalDataType<VolumeSpike_ResponseType>) ?? null
     );
   },
   getMomentumStocks: (): TechIndType['momentumStocks'] => {

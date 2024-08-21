@@ -5,6 +5,7 @@ import { DashBoardConnected } from '../components/dashboard/DashBoardConnected';
 import { BollingerBandsConnected } from '../components/technicalIndicators/BollingerBandsConnected';
 import { MFIConnected } from '../components/technicalIndicators/MFIConnected';
 import { RSIConnected } from '../components/technicalIndicators/RSIConnected';
+import { VolumeSprutConnected } from '../components/technicalIndicators/VolumeSprutConnected';
 import { DRAWER_ITEMS } from '../constants/constants';
 
 console.log(typeof RSIConnected);
@@ -23,6 +24,9 @@ export const AppRouter = () => {
           </Route>
           <Route path={`/${DRAWER_ITEMS.bollingerBands}`} element={<BollingerBandsConnected />}>
             <Route path="*" element={<Navigate to={`/${DRAWER_ITEMS.bollingerBands}`} />} />
+          </Route>
+          <Route path={`/${DRAWER_ITEMS.volumeSprut}`} element={<VolumeSprutConnected />}>
+            <Route path="*" element={<Navigate to={`/${DRAWER_ITEMS.volumeSprut}`} />} />
           </Route>
           {/* Catch-all route to redirect to the root page */}
           <Route path="*" element={<Navigate to="/" />} />

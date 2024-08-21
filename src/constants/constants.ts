@@ -106,10 +106,19 @@ export const BOLLINGERBANDS_CATEGORIES = {
 
 export type BOLLINGERBANDS_CATEGORIES_VALUES_TYPE = ValueOf<typeof BOLLINGERBANDS_CATEGORIES>;
 
+export const VOLUME_SPIKE_CATEGORIES = {
+  upTrend: 'upTrend',
+  downTrend: 'downTrend',
+  neutral: 'neutral',
+} as const;
+
+export type VOLUME_SPIKE_CATEGORIES_VALUES_TYPE = ValueOf<typeof VOLUME_SPIKE_CATEGORIES>;
+
 export const TECHNICAL_INDICATORS = {
   rsi: 'rsi',
   mfi: 'mfi',
   bollingerbands: 'bollingerbands',
+  volumeSpike: 'volumeSpike',
 } as const;
 
 export type TECHNICAL_INDICATORS_VALUES_TYPE = ValueOf<typeof TECHNICAL_INDICATORS>;
@@ -121,6 +130,7 @@ export const DRAWER_ITEMS = {
   rsi: 'RSI',
   mfi: 'MFI',
   bollingerBands: 'Bollinger Bands',
+  volumeSprut: 'Volume Sprut',
 };
 
 export const STOCK_MARKET_MOVEMENT = {

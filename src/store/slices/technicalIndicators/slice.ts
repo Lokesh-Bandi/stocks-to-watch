@@ -10,6 +10,7 @@ const initialState: TechIndType = {
     rsi: null,
     mfi: null,
     bollingerbands: null,
+    volumeSpike: null,
   },
   momentumStocks: null,
   lastUpdated: '',
@@ -21,10 +22,11 @@ export const technicalIndicatorsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchKeyStocksAction.fulfilled, (state, action) => {
-      const { rsi, mfi, bollingerbands, lastUpdated } = action.payload;
+      const { rsi, mfi, bollingerbands, volumeSpike, lastUpdated } = action.payload;
       state.technicalIndicators.rsi = rsi;
       state.technicalIndicators.mfi = mfi;
       state.technicalIndicators.bollingerbands = bollingerbands;
+      state.technicalIndicators.volumeSpike = volumeSpike;
       state.lastUpdated = lastUpdated;
       state.isLoading = false;
     });
