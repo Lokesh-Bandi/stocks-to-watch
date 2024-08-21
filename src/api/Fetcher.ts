@@ -4,6 +4,7 @@ import { consoleError } from '../Error/consoleError';
 import { ErrorTypes } from '../Error/types';
 
 class FetcherRoot {
+  private ttl = 30 * 60 * 1000; // 30 minutes
   private static instance: FetcherRoot;
   private cache: Record<string, { time: number; payload: AxiosResponse['data'] }> = {};
   private SUCCESS_STATUS_CODE = 200;
@@ -34,7 +35,7 @@ class FetcherRoot {
     this.cache[originalUrl] = {
       time: Date.now(),
       payload: axios
-        .get<AxiosResponse>(originalUrl, { params })
+        .get<AxiosResponse>(originalUrl, { ...params, timeout: this.ttl })
         .then((response: AxiosResponse) => {
           const endPoint = this.getEndpoint(originalUrl);
           const status = response.status;
