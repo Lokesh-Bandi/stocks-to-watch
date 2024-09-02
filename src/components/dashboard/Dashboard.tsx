@@ -45,7 +45,8 @@ export const DashBoard = ({ momentumStocks, coreData, isLoading }: DashBoardProp
             stockExchangeCode={eachStock}
             companyName={coreData[eachStock].companyName}
             lastTradedPrice={coreData[eachStock].lastTradedPrice}
-            stocksMovement={momentumStocks[eachStock]}
+            stocksMovement={momentumStocks[eachStock].momentum}
+            patternsFollowed={momentumStocks[eachStock].patternsFollowed}
           />
         );
       })}

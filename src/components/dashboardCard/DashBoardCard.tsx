@@ -11,14 +11,14 @@ export interface DashBoardCardProps {
   companyName: string;
   lastTradedPrice: number;
   stocksMovement: STOCK_MARKET_MOVEMENT_VALUES_TYPE;
-  movementPattern?: string;
+  patternsFollowed: string[] | [];
 }
 export const DashBoardCard = ({
   stockExchangeCode,
   companyName,
   lastTradedPrice,
   stocksMovement,
-  movementPattern,
+  patternsFollowed,
 }: DashBoardCardProps) => {
   const mods = useModifiers(styles, 'dashboardCard', {
     bullish: stocksMovement === STOCK_MARKET_MOVEMENT.bullish,
@@ -62,7 +62,13 @@ export const DashBoardCard = ({
       <div>
         <b>Momentum Status:</b> <span className={mods1}>{stocksMovement}</span>
       </div>
-      <div>{movementPattern}</div>
+      {patternsFollowed.length > 0 && (
+        <div className={styles.patternsSection}>
+          {patternsFollowed.map((eachPattern, ind) => {
+            return <div key={ind + eachPattern}>{eachPattern}</div>;
+          })}
+        </div>
+      )}
     </div>
   );
 };

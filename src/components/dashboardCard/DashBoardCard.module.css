@@ -34,6 +34,7 @@
 .title {
   font-size: 18px;
   font-weight: 600;
+  user-select: all;
 }
 
 .stockMovementText {
@@ -46,4 +47,24 @@
 }
 .stockMovementText_bearish {
   color: #d33d3d;
+}
+
+.patternsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  padding: 4px;
+  justify-content: center;
+  border-radius: 12px;
+  background-color: #ffffff;
+  user-select: all;
+}
+
+.dashboardCard_bearish .patternsSection {
+  border: 1px solid #d33d3d;
+}
+
+.dashboardCard_bullish .patternsSection {
+  border: 1px solid #4bd15a;
 }

@@ -35,9 +35,13 @@ export interface CustomTechnicalIndicatorType
       | null
     >
   > {}
+export interface MomentumAndCandleStickPatternType {
+  momentum: STOCK_MARKET_MOVEMENT_VALUES_TYPE;
+  patternsFollowed: string[] | [];
+}
 export interface TechIndType {
   technicalIndicators: CustomTechnicalIndicatorType;
   lastUpdated: string;
   isLoading: boolean;
-  momentumStocks: Record<string, STOCK_MARKET_MOVEMENT_VALUES_TYPE> | null;
+  momentumStocks: Record<string, MomentumAndCandleStickPatternType> | null;
 }
