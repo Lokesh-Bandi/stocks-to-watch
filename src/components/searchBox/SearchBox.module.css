@@ -2,11 +2,6 @@
   position: relative;
   width: 300px;
 }
-@media (max-width: 1024px) {
-  .searchBlock {
-    width: 100%;
-  }
-}
 .searchInput {
   width: 100%;
   padding: 10px;
@@ -29,4 +24,13 @@
   padding: 10px;
   cursor: pointer;
   border-bottom: 1px solid #dddddd;
+}
+
+@media (max-width: 1024px) {
+  .searchBlock {
+    width: 100%;
+  }
+  .searchInput {
+    padding: 6px;
+  }
 }

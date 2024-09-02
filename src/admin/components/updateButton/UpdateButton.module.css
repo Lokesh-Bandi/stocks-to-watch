@@ -1,8 +1,8 @@
 .updateButton {
   display: flex;
-  padding: 10px 26px;
+  padding: 8px 26px;
   font-family: 'Exo';
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   line-height: 1;
   color: #5e1a1a;
@@ -20,5 +20,12 @@
   .updateButton:hover {
     color: #ffffff;
     background-color: #5e1a1a;
+  }
+}
+
+@media (max-width: 1024px) {
+  .updateButton {
+    padding: 6px 12px;
+    font-size: 13px;
   }
 }

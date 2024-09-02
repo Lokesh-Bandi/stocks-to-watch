@@ -13,12 +13,25 @@
   padding: 20px 4px;
   box-sizing: border-box;
 }
+
+.selectionSection {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
 @media (max-width: 1024px) {
   .brandingSection {
     gap: 12px;
     grid-template-columns: repeat(2,1fr);
     grid-template-rows: 84px 84px;
     padding: 4px;
+  }
+  .selectionSection {
+    flex-direction: column;
+    width: 100%;
   }
 }
 .summaryTableSection {

@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react';
 import { AiOutlineBarChart } from 'react-icons/ai';
 import { IoStatsChartSharp } from 'react-icons/io5';
+import { LuCandlestickChart } from 'react-icons/lu';
 import { MdSsidChart } from 'react-icons/md';
 import { PiChartLineLight } from 'react-icons/pi';
 import { RxDashboard } from 'react-icons/rx';
@@ -39,6 +40,8 @@ export const DrawerConnected = () => {
         return <MdSsidChart />;
       case DRAWER_ITEMS.volumeSprut:
         return <IoStatsChartSharp />;
+      case DRAWER_ITEMS.charts:
+        return <LuCandlestickChart />;
       default:
         return null;
     }

@@ -5,7 +5,7 @@ interface UpdateButtonProps {
   title?: string;
 }
 export const UpdateButton = ({ onClick, title }: UpdateButtonProps) => {
-  const buttonText = title || 'Update';
+  const buttonText = title ?? 'Update';
   return (
     <div className={styles.updateButton} onClick={onClick}>
       {buttonText}
